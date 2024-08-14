@@ -1,0 +1,89 @@
+<mvc:View controllerName="Task4.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="Monairy">
+				<content>
+					<Toolbar height="auto">
+						<FlexBox width="100%" alignContent="Center" justifyContent="SpaceAround" alignItems="Center" wrap="Wrap">
+							<SearchField id="refNo" placeholder="Sales Document" tooltip="{i18n>worklistSearchTooltip}" liveChange=".onRefNo" width="250px"/>
+							
+							<Button class="go" text="Go" width="250px" press=".onGo"/>
+						</FlexBox>
+					</Toolbar>
+							<Toolbar width="90%">
+							<Button class="editIcon create " text="Create" tooltip="Create" press=".onCreate"/>
+							<Button class="editIcon" text="Delete" tooltip="Delete" enabled="false"/>
+						</Toolbar>
+								<Table class="table" width="90%" id="table" items="{SOHeadSet>/SOHeadSet}"
+							noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid">
+									
+							<columns>
+								<Column id="VBELNCol" hAlign="Center">
+									<Text text="Sales Document" id="VBELN"/>
+								</Column>
+									<Column id="ERDATCol" hAlign="Center">
+									<Text text="Created on" id="ERDAT"/>
+								</Column>
+									<Column id="VPRGRCol" hAlign="Center">
+									<Text text="Proposed date type" id="VPRGR"/>
+								</Column>
+								<Column id="ERNAMCol" hAlign="Center">
+									<Text text="Created by" id="ERNAM"/>
+								</Column>
+								<Column id="AUARTCol" hAlign="Center">
+									<Text text="Sales Doc. Type" id="AUART"/>
+								</Column>
+								<Column id="NETWRCol" hAlign="Center">
+									<Text text="Net value" id="NETWR"/>
+								</Column>
+									<Column id="WAERKCol" hAlign="Center">
+									<Text text="Doc. Currency" id="WAERK"/>
+								</Column>
+									<Column id="VKORGCol" hAlign="Center">
+									<Text text="Sales Org." id="VKORG"/>
+								</Column>
+								
+								
+									<Column id="GWLDTCol" hAlign="Center">
+									<Text text="Warranty Date" id="GWLDT"/>
+								</Column>
+									<Column id="KUNNRCol" hAlign="Center">
+									<Text text="Customer" id="KUNNR"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem type="Navigation" press=".onPress" vAlign="Middle">
+									<cells>
+										<ObjectIdentifier id="VBELNText" title="{SOHeadSet>Vbeln}"/>
+										<Text id="ERDATText" text="{SOHeadSet>Erdat}"/>
+										<Text id="VPRGRText" text="{SOHeadSet>Vprgr}"/>
+										<Text id="ERNAMText" text="{SOHeadSet>Ernam}"/>
+										<Text id="AUARTText" text="{SOHeadSet>Auart}"/>
+										<Text id="NETWRText" text="{SOHeadSet>Netwr}"/>
+										<Text id="WAERKText" text="{SOHeadSet>Waerk}"/>
+										<Text id="VKORGText" text="{SOHeadSet>Vkorg}"/>
+										<Text id="GWLDTText" text="{SOHeadSet>Gwldt}"/>
+										<Text id="KUNNRText" text="{SOHeadSet>Kunnr}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+							<customData>
+								<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>
+							</customData>
+						</Table>
+					<!--<smartTable:SmartTable id="LineItemsSmartTable" entitySet="SOHeadSet" smartFilterId="smartFilterBar" tableType="Table"-->
+					<!--	useVariantManagement="true" useTablePersonalisation="true" header="Line Items" showRowCount="true"-->
+					<!--	persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" -->
+					<!--	editTogglable="true" app:useSmartToggle="true">-->
+				
+			
+					<!--	<smartTable:layoutData>-->
+					<!--		<FlexItemData growFactor="1" baseSize="0%"/>-->
+					<!--	</smartTable:layoutData>-->
+					<!--</smartTable:SmartTable>-->
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

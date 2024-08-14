@@ -1,0 +1,153 @@
+html[data-sap-ui-animation='on'] .sapMNavItem,
+html[data-sap-ui-animation='on'] .sapMNavItem.sapMPage {
+    background-color: #fff;
+}
+/*View1*/
+/*Header*/
+html.sap-desktop .sapMBtn:focus>.sapMFocusable {
+    outline: none;
+    outline-offset: none;
+}
+#__button0-inner {
+    border: none;
+    background-color: transparent;
+}
+.sapMSFF {
+    border-radius: 10px;
+    height: 1.7rem;
+    margin-top: 6px;
+}
+.sapMSFI{
+	height: 1.7rem;
+}
+.sapMSFB:hover {
+    background-color: transparent;
+}
+.sapMSFB {
+    line-height: 1.5rem;
+}
+.sapMIBar {
+    margin: 10px auto 0 auto !important;
+    background-color: #ffffff !important;
+}
+.sapMIBar .sapMBtnInner{
+	background-color:transparent;
+	border:none;
+	border-radius:10px;
+	
+}
+.sapMBtn:hover>.sapMBtnHoverable{
+	background-color:transparent;
+}
+.sapMIBar .editIcon .sapMBtnInner bdi{
+		background-color:transparent;
+	border:none;
+	border-radius:10px;
+	color:#0064d9;
+	font-weight:bold;
+	padding:5px;
+}
+.sapMIBar .create .sapMBtnInner bdi:hover{
+	background-color:#ebebeb;
+}
+/*.sapMBtn:hover>.sapMBtnHoverable {*/
+/*    background-color: transparent !important;*/
+/*    border-color: transparent;*/
+/*    cursor: default;*/
+/*}*/
+.sapMTBNewFlex span bdi {
+    cursor: pointer;
+}
+Button.go span bdi {
+    background-color: #0070f2;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+Button.go span bdi:hover {
+    background-color: #0064d9;
+}
+.sapMScrollContScroll {
+    padding: 15px 30px;
+    background-color: #ffffff !important;
+}
+/*Table*/
+.sapMTBNewFlex {
+    justify-content: flex-end !important;
+}
+.sapMLIBFocusable:focus {
+    outline: 1px solid #0070f2 !important;
+}
+.sapMListTbl th {
+    background-color: #fff !important;
+}
+.table {
+    margin: 30px auto;
+}
+/***********************************************************View2*************************************/
+/*Header*/
+.sapUxAPObjectPageHeaderIdentifier.sapUxAPObjectPageHeaderIdentifierForce{
+	background-color:#fff;
+}
+.sapUxAPObjectPageHeaderContentDesign-Light{
+	background-color:#fff !important;
+	box-shadow: 0 0 .25rem 0 rgba(34, 53, 72, 0.15), inset 0 -0.0625rem 0 0 #d9d9d9;
+	margin-bottom:40px;
+}
+.sapMBtnInner {
+    background-color: transparent;
+    border: none;
+}
+.edit .sapMBtnContent bdi{
+	background-color:#3c70f2;
+	color:#fff;
+	padding:5px;
+	border-radius:5px;
+}
+.edit .sapMBtnContent bdi:hover{
+		background-color:#0064d9;
+}
+.delete .sapMBtnContent bdi{
+	color:#3c70f2;
+	padding:4px;
+	border:1px #3c70f2 solid;
+	border-radius:5px;
+	font-weight:600;
+}
+.delete .sapMBtnContent bdi:hover{
+	background-color:#eaecee;
+	border-color:#bcc3ca;
+}
+/*Object layout*/
+.sapUxAPObjectPageNavigation {
+    background: #fff !important;
+}
+.sapMFlexBoxAlignContentStretch{
+	background: #fff;
+	border-radius:15px;
+}
+
+.sapMInputBase:not(.sapMInputBaseHasEndIcons):not(.sapMInputBaseHasBeginIcons) .sapMInputBaseContentWrapper {
+   
+    border-radius: 10px;
+    height: 1.7rem;
+}
+/*edit view*/
+.displayNone{
+	display:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
