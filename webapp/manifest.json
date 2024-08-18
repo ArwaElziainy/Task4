@@ -82,6 +82,10 @@
 				"name": "View1",
 				"target": "View1"
 			}, {
+				"pattern": "View3",
+				"name": "View3",
+				"target": "View3"
+			}, {
 				"pattern": "{Vbeln}",
 				"name": "View2",
 				"target": "View2"
@@ -92,6 +96,13 @@
 					"viewName": "View1",
 					"viewLevel": 0,
 					"controlAggregation": "pages"
+				},
+				"View3": {
+					"viewName": "View3",
+					"viewType": "XML",
+					"transition": "slide",
+					"controlAggregation": "pages",
+					"viewLevel": 2
 				},
 			
 				"View2": {

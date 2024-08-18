@@ -1,0 +1,203 @@
+<mvc:View controllerName="Task4.controller.View3" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:uxap="sap.uxap" xmlns="sap.m" xmlns:l="sap.ui.layout">
+	<App>
+		<pages>
+			<Page title="Monairy">
+				<content>
+						<OverflowToolbar >
+				<Text text="ff"/>
+			</OverflowToolbar>
+		<uxap:ObjectPageLayout id="ObjectPageLayout" >
+		
+			<uxap:sections>
+				<uxap:ObjectPageSection id="section1" title="General Header">
+					<uxap:subSections>
+						<uxap:ObjectPageSubSection>
+							<uxap:blocks>
+								<VBox>
+									<f:SimpleForm editable="false" id="form" layout="ColumnLayout" columnsM="2" columnsL="3">
+										<Label text="Created on" labelFor="ERDAT"/>
+										<Input id="ERDAT" class="pressEdit"/>
+										<Label text="Proposed date type" labelFor="VPRGR"/>
+										<Input id="VPRGR" class="pressEdit"/>
+										<Label text="Created by" labelFor="ERNAM"/>
+										<Input id="ERNAM" class="pressEdit"/>
+										<Label text="Sales Doc. Type" labelFor="AUART"/>
+										<Input id="AUART" class="pressEdit"/>
+										<Label text="Net value" labelFor="NETWR"/>
+										<Input id="NETWR" class="pressEdit"/>
+										<Label text="Doc. Currency" labelFor="WAERK"/>
+										<Input id="WAERK" class="pressEdit"/>
+										<Label text="Sales Org." labelFor="VKORG"/>
+										<Input id="VKORG" class="pressEdit"/>
+										<Label text="Warranty Date" labelFor="GWLDT"/>
+										<Input id="GWLDT" class="pressEdit"/>
+										<Label text="Customer" labelFor="KUNNR"/>
+										<Input id="KUNNR" class="pressEdit"/>
+									</f:SimpleForm>
+								</VBox>
+							</uxap:blocks>
+						</uxap:ObjectPageSubSection>
+					</uxap:subSections>
+				</uxap:ObjectPageSection>
+				<uxap:ObjectPageSection id="section2" title="Sales">
+					<uxap:subSections>
+						<uxap:ObjectPageSubSection>
+							<uxap:blocks>
+								<VBox>
+									<f:SimpleForm editable="false" id="form1" layout="ColumnLayout" columnsM="2" columnsL="3">
+										<f:content>
+											<core:Title text="General Details"/>
+											<Label text="Document Date" labelFor="AUDAT"/>
+											<Input id="AUDAT" class="pressEdit"/>
+											<Label text="Sales Org." labelFor="VKORG1"/>
+											<Input id="VKORG1" class="pressEdit "/>
+											<Label text="Created by" labelFor="ERNAM1"/>
+											<Input id="ERNAM1" class="pressEdit"/>
+											<Label text="Created on" labelFor="ERDAT1"/>
+											<Input id="ERDAT1" class="pressEdit"/>
+											<Label text="Order reason" labelFor="AUGRU"/>
+											<Input id="AUGRU" class="pressEdit"/>
+											<Label text="Sales Office" labelFor="VKBUR"/>
+											<Input id="VKBUR" class="pressEdit"/>
+											<core:Title text="Pricing and Statistics"/>
+											<Label text="Doc. Currency" labelFor="WAERK1"/>
+											<Input id="WAERK1" class="pressEdit"/>
+											<Label text="Procedure" labelFor="KALSM"/>
+											<Input id="KALSM" class="pressEdit"/>
+											<Label text="Customer purchase order number " labelFor="BSTNK"/>
+											<Input id="BSTNK" class="pressEdit"/>
+											<Label text="Customer purchase order type" labelFor="BSARK"/>
+											<Input id="BSARK" class="pressEdit"/>
+										</f:content>
+									</f:SimpleForm>
+								</VBox>
+							</uxap:blocks>
+						</uxap:ObjectPageSubSection>
+					</uxap:subSections>
+				</uxap:ObjectPageSection>
+				<uxap:ObjectPageSection id="section3" title="Shipping">
+					<uxap:subSections>
+						<uxap:ObjectPageSubSection>
+							<uxap:blocks>
+								<VBox>
+									<f:SimpleForm editable="false" id="form2" layout="ColumnLayout" columnsM="2" columnsL="3">
+										<Label text="Complete delivery" labelFor="AUTLF"/>
+										<Input id="AUTLF" class="pressEdit "/>
+										<Label text="Delivery block " labelFor="LIFSK"/>
+										<Input id="LIFSK" class="pressEdit "/>
+										<Label text="Shipping Cond." labelFor="VSBED"/>
+										<Input id="VSBED" class="pressEdit "/>
+										<Label text="DG Mgmt Profile" labelFor="PROLI"/>
+										<Input id="PROLI" class="pressEdit "/>
+									</f:SimpleForm>
+								</VBox>
+							</uxap:blocks>
+						</uxap:ObjectPageSubSection>
+					</uxap:subSections>
+				</uxap:ObjectPageSection>
+				<uxap:ObjectPageSection id="section4" title="Billing Document">
+					<uxap:subSections>
+						<uxap:ObjectPageSubSection>
+							<uxap:blocks>
+								<VBox>
+									<f:SimpleForm editable="false" id="form3" layout="ColumnLayout" columnsM="2" columnsL="3">
+										<Label text="Company code to be billed " labelFor="BUKRSVF"/>
+										<Input id="BUKRSVF" class="pressEdit "/>
+										<Label text="EU Triang. Deal" labelFor="XEGDR"/>
+										<Input id="XEGDR" class="pressEdit"/>
+										<Label text="Billing block" labelFor="FAKSK"/>
+										<Input id="FAKSK" class="pressEdit"/>
+										<Label text="Alt. tax classific." labelFor="TAXK1"/>
+										<Input id="TAXK1" class="pressEdit"/>
+										<Label text="Tax departure country" labelFor="LANDTX"/>
+										<Input id="LANDTX" class="pressEdit"/>
+									</f:SimpleForm>
+								</VBox>
+							</uxap:blocks>
+						</uxap:ObjectPageSubSection>
+					</uxap:subSections>
+				</uxap:ObjectPageSection>
+				<uxap:ObjectPageSection id="section5" title="Condition">
+					<uxap:subSections>
+						<uxap:ObjectPageSubSection>
+							<uxap:blocks>
+								<VBox>
+									<f:SimpleForm editable="false" id="form4" layout="ColumnLayout" columnsM="2" columnsL="3">
+										<Label text="Net value " labelFor="NETWR1"/>
+										<Input id="NETWR1" class="pressEdit "/>
+									</f:SimpleForm>
+								</VBox>
+							</uxap:blocks>
+						</uxap:ObjectPageSubSection>
+					</uxap:subSections>
+				</uxap:ObjectPageSection>
+				<uxap:ObjectPageSection id="section6" title="Items">
+					<uxap:subSections>
+						<uxap:ObjectPageSubSection>
+							<uxap:blocks>
+								<VBox>
+									<Table class="table" width="100%" id="table" noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid">
+										<columns>
+											<Column id="POSNRCol" hAlign="Center">
+												<Text text="Item" id="POSNR"/>
+											</Column>
+											<Column id="MATNRCol" hAlign="Center">
+												<Text text="Material" id="MATNR"/>
+											</Column>
+											<Column id="MATWACol" hAlign="Center">
+												<Text text="Material Entered" id="MATWA"/>
+											</Column>
+											<Column id="MATKLCol" hAlign="Center">
+												<Text text="Material Group" id="MATKL"/>
+											</Column>
+											<Column id="ARKTXCol" hAlign="Center">
+												<Text text="Description" id="ARKTX"/>
+											</Column>
+											<Column id="PSTYVKCol" hAlign="Center">
+												<Text text="Item category" id="PSTYV"/>
+											</Column>
+											<Column id="ZIEMECol" hAlign="Center">
+												<Text text="Target qty UoM" id="ZIEME"/>
+											</Column>
+											<Column id="NETWRCol" hAlign="Center">
+												<Text text="Net value" id="NETWRI"/>
+											</Column>
+											<Column id="WAERKCol" hAlign="Center">
+												<Text text="Doc. Currency" id="WAERKI"/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem vAlign="Middle">
+												<cells>
+													<Input class="pressEdit" id="Posnr"/>
+													<Input class="pressEdit" id="Matnr"/>
+													<Input class="pressEdit" id="Matwa"/>
+													<Input class="pressEdit" id="Matkl"/>
+													<Input class="pressEdit" id="Arktx"/>
+													<Input class="pressEdit" id="Pstyv"/>
+													<Input class="pressEdit" id="Zieme"/>
+													<Input class="pressEdit" id="Netwr"/>
+													<Input class="pressEdit" id="Waerk"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+										<customData>
+											<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>
+										</customData>
+									</Table>
+								</VBox>
+							</uxap:blocks>
+						</uxap:ObjectPageSubSection>
+					</uxap:subSections>
+				</uxap:ObjectPageSection>
+			</uxap:sections>
+			
+		</uxap:ObjectPageLayout>
+	
+		</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

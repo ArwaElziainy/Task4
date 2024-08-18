@@ -35,6 +35,7 @@ sap.ui.define([
 
 					//               this.getView().setModel(oViewModel, "orderData");
 					//               console.log(oViewModel)
+					// section1
 					this.getView().byId("VBELN").setText(oData.Vbeln);
 					this.getView().byId("ERDAT").setText(oData.Erdat);
 					this.getView().byId("VPRGR").setText(oData.Vprgr);
@@ -45,6 +46,26 @@ sap.ui.define([
 					this.getView().byId("VKORG").setText(oData.Vkorg);
 					this.getView().byId("GWLDT").setText(oData.Gwldt);
 					this.getView().byId("KUNNR").setText(oData.Kunnr);
+
+					// section2
+					this.getView().byId("AUDAT").setText(oData.Audat);
+					this.getView().byId("VKORG1").setText(oData.Vkorg);
+					this.getView().byId("ERNAM1").setText(oData.Ernam);
+					this.getView().byId("ERDAT1").setText(oData.Erdat);
+					this.getView().byId("WAERK1").setText(oData.Waerk);
+					this.getView().byId("KALSM").setText(oData.Kalsm);
+					this.getView().byId("BSTNK").setText(oData.Bstnk);
+
+					// Section3
+					this.getView().byId("AUTLF").setText(oData.Autlf);
+
+					// Section4
+					this.getView().byId("BUKRSVF").setText(oData.BukrsVf);
+					this.getView().byId("XEGDR").setText(oData.Xegdr);
+
+					// Section5
+					this.getView().byId("NETWR1").setText(oData.Netwr);
+					
 					var headToItems = oData.HeadToItems.results;
 
 					var oTableModel = new JSONModel();

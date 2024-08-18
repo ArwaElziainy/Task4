@@ -56,6 +56,11 @@ sap.ui.define([
 			oRouter.navTo("View2", {
 				Vbeln: Vbeln
 			}, false);
+		},
+		onCreate: function(){
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			console.log(oRouter.navTo("View3"))
+			oRouter.navTo("View3");
 		}
 	});
 });
