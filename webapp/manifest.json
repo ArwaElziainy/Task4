@@ -94,7 +94,7 @@
 				"View1": {
 					"viewType": "XML",
 					"viewName": "View1",
-					"viewLevel": 0,
+					"viewLevel": 1,
 					"controlAggregation": "pages"
 				},
 				"View3": {
@@ -102,7 +102,7 @@
 					"viewType": "XML",
 					"transition": "slide",
 					"controlAggregation": "pages",
-					"viewLevel": 2
+					"viewLevel": 3
 				},
 			
 				"View2": {
@@ -110,7 +110,7 @@
 					"viewType": "XML",
 					"transition": "slide",
 					"controlAggregation": "pages",
-					"viewLevel": 1
+					"viewLevel": 2
 				}
 			}
 		},

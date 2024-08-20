@@ -1,16 +1,35 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/json/JSONModel",
-	"sap/ui/model/odata/v2/ODataModel"
-], function(Controller, JSONModel, ODataModel) {
+	"sap/ui/model/odata/v2/ODataModel",
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator"
+], function(Controller, JSONModel, ODataModel, Filter, FilterOperator) {
 	"use strict";
 
 	return Controller.extend("Task4.controller.View1", {
 		onInit: function() {
+			// Create the OData model directly in the controller
+			var oModel = new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/SAP/ZGW_SO_SRV/", {
+				useBatch: false, // Optional, disable batch processing if not needed
+				defaultBindingMode: "TwoWay",
+				defaultCountMode: "Inline"
+			});
 
+			// Set the model to the view
+			this.getView().setModel(oModel);
 		},
 
 		onGo: function() {
+			// var oTable = this.getView().byId("table");
+
+			// Manually refresh the model to fetch data from the OData service
+			// var oModel = this.getView().getModel();
+			// oModel.refresh(true);
+
+			// // Apply filters if needed
+			// this.applyTableFilters();
+
 			// Define the service URL
 			var sServiceUrl = "https://dev.monairy.com/sap/opu/odata/SAP/ZGW_SO_SRV/";
 
@@ -23,7 +42,7 @@ sap.ui.define([
 			});
 
 			// Set the model to the view
-			this.getView().setModel(oModel,"SOHeadSet");
+			this.getView().setModel(oModel);
 
 			// Fetch data from the OData service
 			oModel.read("/SOHeadSet", {
@@ -33,12 +52,11 @@ sap.ui.define([
 					"sap-client": "110"
 				},
 				success: function(oData) {
-					// Handle the successful response here
-					console.log("Data fetched successfully:", oData.results);
+					
 					// Optionally, set the fetched data to a local JSON model for further processing
 					var oLocalModel = new sap.ui.model.json.JSONModel(oData.results);
 					this.getView().setModel(oLocalModel, "localModel");
-					console.log(oLocalModel)
+				
 				}.bind(this),
 				error: function(oError) {
 					// Handle the error response here
@@ -50,17 +68,41 @@ sap.ui.define([
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			// var refNo = oEvent.getSource().getBindingContext('SCHeaderSet2').getObject().ZdateSta;
 
-			var Vbeln = oEvent.getSource().getBindingContext('SOHeadSet').getObject().Vbeln;
-			console.log(Vbeln)
+			var Vbeln = oEvent.getSource().getBindingContext('undefined').getObject().Vbeln;
+			
 
 			oRouter.navTo("View2", {
 				Vbeln: Vbeln
 			}, false);
 		},
-		onCreate: function(){
+		onCreate: function() {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			console.log(oRouter.navTo("View3"))
+
 			oRouter.navTo("View3");
+		},
+		onFilter: function() {
+			var sVbelnValue = this.getView().byId("inputVbeln").getValue();
+			var aFilters = [];
+
+			if (sVbelnValue) {
+				aFilters.push(new Filter("Vbeln", FilterOperator.EQ, sVbelnValue));
+			}
+
+			var oTable = this.getView().byId("table");
+			var oBinding = oTable.getBinding("items");
+
+			if (oBinding) {
+				if (oBinding.filter(aFilters)) {
+					oBinding.filter(aFilters);
+					console.log("Filters applied: ", aFilters);
+				} else {
+					console.log("error")
+				}
+
+			} else {
+				console.error("Table binding not found.");
+			}
+			console.log(oBinding.filter(aFilters))
 		}
 	});
 });

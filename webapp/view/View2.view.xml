@@ -2,118 +2,122 @@
 	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 	xmlns:f="sap.ui.layout.form" xmlns:uxap="sap.uxap" xmlns="sap.m" xmlns:l="sap.ui.layout">
 	<App>
-		<uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" subSectionLayout="TitleOnLeft" showTitleInHeaderContent="true"
-			showHeaderContent="true">
-			<uxap:headerTitle>
-				<uxap:ObjectPageHeader id="ObjectPageLayoutHeaderTitle" isObjectTitleAlwaysVisible="false" isActionAreaAlwaysVisible="true">
-					<Button class="edit" text="Edit" press=".onEdit"/>
-					<Button class="delete" text="Delete"/>
+		<pages>
+			
+		</pages>
+		<!--<mvc:XMLView viewName="Task4.view.display"/>-->
+		<!--<uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" subSectionLayout="TitleOnLeft" showTitleInHeaderContent="true"-->
+		<!--	showHeaderContent="true">-->
+		<!--	<uxap:headerTitle>-->
+		<!--		<uxap:ObjectPageHeader id="ObjectPageLayoutHeaderTitle" isObjectTitleAlwaysVisible="false" isActionAreaAlwaysVisible="true">-->
+		<!--			<Button class="edit" text="Edit" press=".onEdit"/>-->
+		<!--			<Button class="delete" text="Delete"/>-->
 					<!--<ObjectAttribute id="objectAttribute"/>-->
-				</uxap:ObjectPageHeader>
-			</uxap:headerTitle>
-			<uxap:sections>
-				<uxap:ObjectPageSection id="section1" title="General Header">
-					<uxap:subSections>
-						<uxap:ObjectPageSubSection>
-							<uxap:blocks>
-								<VBox>
-									<f:SimpleForm editable="false" id="form" layout="ColumnLayout" columnsM="2" columnsL="3">
-										<Label text="Sales Document" labelFor="VBELN"/>
-										<Text id="VBELN" class="pressEdit "/>
-										<Label text="Created on" labelFor="ERDAT"/>
-										<Text id="ERDAT" class="pressEdit"/>
-										<Label text="Proposed date type" labelFor="VPRGR"/>
-										<Text id="VPRGR" class="pressEdit"/>
-										<Label text="Created by" labelFor="ERNAM"/>
-										<Text id="ERNAM" class="pressEdit"/>
-										<Label text="Sales Doc. Type" labelFor="AUART"/>
-										<Text id="AUART" class="pressEdit"/>
-										<Label text="Net value" labelFor="NETWR"/>
-										<Text id="NETWR" class="pressEdit"/>
-										<Label text="Doc. Currency" labelFor="WAERK"/>
-										<Text id="WAERK" class="pressEdit"/>
-										<Label text="Sales Org." labelFor="VKORG"/>
-										<Text id="VKORG" class="pressEdit"/>
-										<Label text="Warranty Date" labelFor="GWLDT"/>
-										<Text id="GWLDT" class="pressEdit"/>
-										<Label text="Customer" labelFor="KUNNR"/>
-										<Text id="KUNNR" class="pressEdit"/>
-									</f:SimpleForm>
-								</VBox>
-							</uxap:blocks>
-						</uxap:ObjectPageSubSection>
-					</uxap:subSections>
-				</uxap:ObjectPageSection>
-				<uxap:ObjectPageSection id="section2" title="Sales">
-					<uxap:subSections>
-						<uxap:ObjectPageSubSection>
-							<uxap:blocks>
-								<VBox>
-									<f:SimpleForm editable="false" id="form1" layout="ColumnLayout" columnsM="2" columnsL="3">
-										<Label text="Document Date" labelFor="AUDAT"/>
-										<Text id="AUDAT" class="pressEdit"/>
-										<Label text="Sales Org." labelFor="VKORG1"/>
-										<Text id="VKORG1" class="pressEdit "/>
-										<Label text="Created by" labelFor="ERNAM1"/>
-										<Text id="ERNAM1" class="pressEdit"/>
-										<Label text="Created on" labelFor="ERDAT1"/>
-										<Text id="ERDAT1" class="pressEdit"/>
-										<Label text="Doc. Currency" labelFor="WAERK1"/>
-										<Text id="WAERK1" class="pressEdit"/>
-										<Label text="Procedure" labelFor="KALSM"/>
-										<Text id="KALSM" class="pressEdit"/>
-										<Label text="Customer purchase order number " labelFor="BSTNK"/>
-										<Text id="BSTNK" class="pressEdit"/>
-									</f:SimpleForm>
-								</VBox>
-							</uxap:blocks>
-						</uxap:ObjectPageSubSection>
-					</uxap:subSections>
-				</uxap:ObjectPageSection>
-				<uxap:ObjectPageSection id="section3" title="Shipping">
-					<uxap:subSections>
-						<uxap:ObjectPageSubSection>
-							<uxap:blocks>
-								<VBox>
-									<f:SimpleForm editable="false" id="form2" layout="ColumnLayout" columnsM="2" columnsL="3">
-										<Label text="Complete delivery" labelFor="AUTLF"/>
-										<Text id="AUTLF" class="pressEdit "/>
-									</f:SimpleForm>
-								</VBox>
-							</uxap:blocks>
-						</uxap:ObjectPageSubSection>
-					</uxap:subSections>
-				</uxap:ObjectPageSection>
-				<uxap:ObjectPageSection id="section4" title="Billimg Document">
-					<uxap:subSections>
-						<uxap:ObjectPageSubSection>
-							<uxap:blocks>
-								<VBox>
-									<f:SimpleForm editable="false" id="form3" layout="ColumnLayout" columnsM="2" columnsL="3">
-										<Label text="Company code to be billed " labelFor="BUKRSVF"/>
-										<Text id="BUKRSVF" class="pressEdit "/>
-										<Label text="EU Triang. Deal" labelFor="XEGDR"/>
-										<Text id="XEGDR" class="pressEdit"/>
-									</f:SimpleForm>
-								</VBox>
-							</uxap:blocks>
-						</uxap:ObjectPageSubSection>
-					</uxap:subSections>
-				</uxap:ObjectPageSection>
-				<uxap:ObjectPageSection id="section5" title="Condition">
-					<uxap:subSections>
-						<uxap:ObjectPageSubSection>
-							<uxap:blocks>
-								<VBox>
-									<f:SimpleForm editable="false" id="form4" layout="ColumnLayout" columnsM="2" columnsL="3">
-										<Label text="Net value	" labelFor="NETWR1"/>
-										<Text id="NETWR1" class="pressEdit "/>
-									</f:SimpleForm>
-								</VBox>
-							</uxap:blocks>
-						</uxap:ObjectPageSubSection>
-					</uxap:subSections>
-				</uxap:ObjectPageSection>
+		<!--		</uxap:ObjectPageHeader>-->
+		<!--	</uxap:headerTitle>-->
+		<!--	<uxap:sections>-->
+		<!--		<uxap:ObjectPageSection id="section1" title="General Header">-->
+		<!--			<uxap:subSections>-->
+		<!--				<uxap:ObjectPageSubSection>-->
+		<!--					<uxap:blocks>-->
+		<!--						<VBox>-->
+		<!--							<f:SimpleForm editable="false" id="form" layout="ColumnLayout" columnsM="2" columnsL="3">-->
+		<!--								<Label text="Sales Document" labelFor="VBELN"/>-->
+		<!--								<Text id="VBELN" class="pressEdit "/>-->
+		<!--								<Label text="Created on" labelFor="ERDAT"/>-->
+		<!--								<Text id="ERDAT" class="pressEdit"/>-->
+		<!--								<Label text="Proposed date type" labelFor="VPRGR"/>-->
+		<!--								<Text id="VPRGR" class="pressEdit"/>-->
+		<!--								<Label text="Created by" labelFor="ERNAM"/>-->
+		<!--								<Text id="ERNAM" class="pressEdit"/>-->
+		<!--								<Label text="Sales Doc. Type" labelFor="AUART"/>-->
+		<!--								<Text id="AUART" class="pressEdit"/>-->
+		<!--								<Label text="Net value" labelFor="NETWR"/>-->
+		<!--								<Text id="NETWR" class="pressEdit"/>-->
+		<!--								<Label text="Doc. Currency" labelFor="WAERK"/>-->
+		<!--								<Text id="WAERK" class="pressEdit"/>-->
+		<!--								<Label text="Sales Org." labelFor="VKORG"/>-->
+		<!--								<Text id="VKORG" class="pressEdit"/>-->
+		<!--								<Label text="Warranty Date" labelFor="GWLDT"/>-->
+		<!--								<Text id="GWLDT" class="pressEdit"/>-->
+		<!--								<Label text="Customer" labelFor="KUNNR"/>-->
+		<!--								<Text id="KUNNR" class="pressEdit"/>-->
+		<!--							</f:SimpleForm>-->
+		<!--						</VBox>-->
+		<!--					</uxap:blocks>-->
+		<!--				</uxap:ObjectPageSubSection>-->
+		<!--			</uxap:subSections>-->
+		<!--		</uxap:ObjectPageSection>-->
+		<!--		<uxap:ObjectPageSection id="section2" title="Sales">-->
+		<!--			<uxap:subSections>-->
+		<!--				<uxap:ObjectPageSubSection>-->
+		<!--					<uxap:blocks>-->
+		<!--						<VBox>-->
+		<!--							<f:SimpleForm editable="false" id="form1" layout="ColumnLayout" columnsM="2" columnsL="3">-->
+		<!--								<Label text="Document Date" labelFor="AUDAT"/>-->
+		<!--								<Text id="AUDAT" class="pressEdit"/>-->
+		<!--								<Label text="Sales Org." labelFor="VKORG1"/>-->
+		<!--								<Text id="VKORG1" class="pressEdit "/>-->
+		<!--								<Label text="Created by" labelFor="ERNAM1"/>-->
+		<!--								<Text id="ERNAM1" class="pressEdit"/>-->
+		<!--								<Label text="Created on" labelFor="ERDAT1"/>-->
+		<!--								<Text id="ERDAT1" class="pressEdit"/>-->
+		<!--								<Label text="Doc. Currency" labelFor="WAERK1"/>-->
+		<!--								<Text id="WAERK1" class="pressEdit"/>-->
+		<!--								<Label text="Procedure" labelFor="KALSM"/>-->
+		<!--								<Text id="KALSM" class="pressEdit"/>-->
+		<!--								<Label text="Customer purchase order number " labelFor="BSTNK"/>-->
+		<!--								<Text id="BSTNK" class="pressEdit"/>-->
+		<!--							</f:SimpleForm>-->
+		<!--						</VBox>-->
+		<!--					</uxap:blocks>-->
+		<!--				</uxap:ObjectPageSubSection>-->
+		<!--			</uxap:subSections>-->
+		<!--		</uxap:ObjectPageSection>-->
+		<!--		<uxap:ObjectPageSection id="section3" title="Shipping">-->
+		<!--			<uxap:subSections>-->
+		<!--				<uxap:ObjectPageSubSection>-->
+		<!--					<uxap:blocks>-->
+		<!--						<VBox>-->
+		<!--							<f:SimpleForm editable="false" id="form2" layout="ColumnLayout" columnsM="2" columnsL="3">-->
+		<!--								<Label text="Complete delivery" labelFor="AUTLF"/>-->
+		<!--								<Text id="AUTLF" class="pressEdit "/>-->
+		<!--							</f:SimpleForm>-->
+		<!--						</VBox>-->
+		<!--					</uxap:blocks>-->
+		<!--				</uxap:ObjectPageSubSection>-->
+		<!--			</uxap:subSections>-->
+		<!--		</uxap:ObjectPageSection>-->
+		<!--		<uxap:ObjectPageSection id="section4" title="Billimg Document">-->
+		<!--			<uxap:subSections>-->
+		<!--				<uxap:ObjectPageSubSection>-->
+		<!--					<uxap:blocks>-->
+		<!--						<VBox>-->
+		<!--							<f:SimpleForm editable="false" id="form3" layout="ColumnLayout" columnsM="2" columnsL="3">-->
+		<!--								<Label text="Company code to be billed " labelFor="BUKRSVF"/>-->
+		<!--								<Text id="BUKRSVF" class="pressEdit "/>-->
+		<!--								<Label text="EU Triang. Deal" labelFor="XEGDR"/>-->
+		<!--								<Text id="XEGDR" class="pressEdit"/>-->
+		<!--							</f:SimpleForm>-->
+		<!--						</VBox>-->
+		<!--					</uxap:blocks>-->
+		<!--				</uxap:ObjectPageSubSection>-->
+		<!--			</uxap:subSections>-->
+		<!--		</uxap:ObjectPageSection>-->
+		<!--		<uxap:ObjectPageSection id="section5" title="Condition">-->
+		<!--			<uxap:subSections>-->
+		<!--				<uxap:ObjectPageSubSection>-->
+		<!--					<uxap:blocks>-->
+		<!--						<VBox>-->
+		<!--							<f:SimpleForm editable="false" id="form4" layout="ColumnLayout" columnsM="2" columnsL="3">-->
+		<!--								<Label text="Net value	" labelFor="NETWR1"/>-->
+		<!--								<Text id="NETWR1" class="pressEdit "/>-->
+		<!--							</f:SimpleForm>-->
+		<!--						</VBox>-->
+		<!--					</uxap:blocks>-->
+		<!--				</uxap:ObjectPageSubSection>-->
+		<!--			</uxap:subSections>-->
+		<!--		</uxap:ObjectPageSection>-->
 				<!--		<uxap:ObjectPageSection id="section5" title="General Information">-->
 				<!--	<uxap:subSections>-->
 				<!--		<uxap:ObjectPageSubSection>-->
@@ -146,66 +150,66 @@
 				<!--		</uxap:ObjectPageSubSection>-->
 				<!--	</uxap:subSections>-->
 				<!--</uxap:ObjectPageSection>-->
-				<uxap:ObjectPageSection id="section6" title="Items">
-					<uxap:subSections>
-						<uxap:ObjectPageSubSection>
-							<uxap:blocks>
-								<VBox>
-									<Table class="table" width="100%" id="table" items="{/}" noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid">
-										<columns>
-											<Column id="POSNRCol" hAlign="Center">
-												<Text text="Item" id="POSNR"/>
-											</Column>
-											<Column id="MATNRCol" hAlign="Center">
-												<Text text="Material" id="MATNR"/>
-											</Column>
-											<Column id="MATWACol" hAlign="Center">
-												<Text text="Material Entered" id="MATWA"/>
-											</Column>
-											<Column id="MATKLCol" hAlign="Center">
-												<Text text="Material Group" id="MATKL"/>
-											</Column>
-											<Column id="ARKTXCol" hAlign="Center">
-												<Text text="Description" id="ARKTX"/>
-											</Column>
-											<Column id="PSTYVKCol" hAlign="Center">
-												<Text text="Item category" id="PSTYV"/>
-											</Column>
-											<Column id="ZIEMECol" hAlign="Center">
-												<Text text="Target qty UoM" id="ZIEME"/>
-											</Column>
-											<Column id="NETWRCol" hAlign="Center">
-												<Text text="Net value" id="NETWRI"/>
-											</Column>
-											<Column id="WAERKCol" hAlign="Center">
-												<Text text="Doc. Currency" id="WAERKI"/>
-											</Column>
-										</columns>
-										<items>
-											<ColumnListItem vAlign="Middle">
-												<cells>
-													<Text class="pressEdit" text="{Posnr}"/>
-													<Text class="pressEdit" text="{Matnr}"/>
-													<Text class="pressEdit" text="{Matwa}"/>
-													<Text class="pressEdit" text="{Matkl}"/>
-													<Text class="pressEdit" text="{Arktx}"/>
-													<Text class="pressEdit" text="{Pstyv}"/>
-													<Text class="pressEdit" text="{Zieme}"/>
-													<Text class="pressEdit" text="{Netwr}"/>
-													<Text class="pressEdit" text="{Waerk}"/>
-												</cells>
-											</ColumnListItem>
-										</items>
-										<customData>
-											<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>
-										</customData>
-									</Table>
-								</VBox>
-							</uxap:blocks>
-						</uxap:ObjectPageSubSection>
-					</uxap:subSections>
-				</uxap:ObjectPageSection>
-			</uxap:sections>
-		</uxap:ObjectPageLayout>
+		<!--		<uxap:ObjectPageSection id="section6" title="Items">-->
+		<!--			<uxap:subSections>-->
+		<!--				<uxap:ObjectPageSubSection>-->
+		<!--					<uxap:blocks>-->
+		<!--						<VBox>-->
+		<!--							<Table class="table" width="100%" id="table" items="{/}" noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid">-->
+		<!--								<columns>-->
+		<!--									<Column id="POSNRCol" hAlign="Center">-->
+		<!--										<Text text="Item" id="POSNR"/>-->
+		<!--									</Column>-->
+		<!--									<Column id="MATNRCol" hAlign="Center">-->
+		<!--										<Text text="Material" id="MATNR"/>-->
+		<!--									</Column>-->
+		<!--									<Column id="MATWACol" hAlign="Center">-->
+		<!--										<Text text="Material Entered" id="MATWA"/>-->
+		<!--									</Column>-->
+		<!--									<Column id="MATKLCol" hAlign="Center">-->
+		<!--										<Text text="Material Group" id="MATKL"/>-->
+		<!--									</Column>-->
+		<!--									<Column id="ARKTXCol" hAlign="Center">-->
+		<!--										<Text text="Description" id="ARKTX"/>-->
+		<!--									</Column>-->
+		<!--									<Column id="PSTYVKCol" hAlign="Center">-->
+		<!--										<Text text="Item category" id="PSTYV"/>-->
+		<!--									</Column>-->
+		<!--									<Column id="ZIEMECol" hAlign="Center">-->
+		<!--										<Text text="Target qty UoM" id="ZIEME"/>-->
+		<!--									</Column>-->
+		<!--									<Column id="NETWRCol" hAlign="Center">-->
+		<!--										<Text text="Net value" id="NETWRI"/>-->
+		<!--									</Column>-->
+		<!--									<Column id="WAERKCol" hAlign="Center">-->
+		<!--										<Text text="Doc. Currency" id="WAERKI"/>-->
+		<!--									</Column>-->
+		<!--								</columns>-->
+		<!--								<items>-->
+		<!--									<ColumnListItem vAlign="Middle">-->
+		<!--										<cells>-->
+		<!--											<Text class="pressEdit" text="{Posnr}"/>-->
+		<!--											<Text class="pressEdit" text="{Matnr}"/>-->
+		<!--											<Text class="pressEdit" text="{Matwa}"/>-->
+		<!--											<Text class="pressEdit" text="{Matkl}"/>-->
+		<!--											<Text class="pressEdit" text="{Arktx}"/>-->
+		<!--											<Text class="pressEdit" text="{Pstyv}"/>-->
+		<!--											<Text class="pressEdit" text="{Zieme}"/>-->
+		<!--											<Text class="pressEdit" text="{Netwr}"/>-->
+		<!--											<Text class="pressEdit" text="{Waerk}"/>-->
+		<!--										</cells>-->
+		<!--									</ColumnListItem>-->
+		<!--								</items>-->
+		<!--								<customData>-->
+		<!--									<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>-->
+		<!--								</customData>-->
+		<!--							</Table>-->
+		<!--						</VBox>-->
+		<!--					</uxap:blocks>-->
+		<!--				</uxap:ObjectPageSubSection>-->
+		<!--			</uxap:subSections>-->
+		<!--		</uxap:ObjectPageSection>-->
+		<!--	</uxap:sections>-->
+		<!--</uxap:ObjectPageLayout>-->
 	</App>
 </mvc:View>
