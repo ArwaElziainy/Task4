@@ -199,34 +199,37 @@ Button.go span bdi:hover {
     width: 97%;
     z-index: 1;
     box-shadow: 0 0 0 .0625rem rgba(34, 53, 72, 0.42), 0 .125rem .5rem 0 rgba(34, 53, 72, 0.3);
-    height:2.5rem;
+    height: 2.5rem;
     border-radius: .75rem;
 }
-.cancel span bdi{
-	color:#0064d9;
+
+.cancel span bdi {
+    color: #0064d9;
 }
-.createBtn span bdi{
-	color:#fff;
-	background-color:#0064d9;
-	padding:5px;
-	border-radius:5px;
+
+.createBtn span bdi {
+    color: #fff;
+    background-color: #0064d9;
+    padding: 5px;
+    border-radius: 5px;
 }
+
+.sapMListTblCell {
+    vertical-align: middle;
+}
+
+.sapMCbBg {
+    border: solid 1px #000;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 5px;
+}
+.sapUiRespGrid.sapUiRespGridHSpace1{
+	margin-bottom:50px;
+}
+
 /*input view*/
 
-.sapUxAPObjectPageHeaderDetails{
-	background-color:#fff;
+.sapUxAPObjectPageHeaderDetails {
+    background-color: #fff;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

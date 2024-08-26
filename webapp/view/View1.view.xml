@@ -12,11 +12,14 @@
 					</Toolbar>
 					<Toolbar width="90%">
 						<Button class="editIcon create " text="Create" tooltip="Create" press=".onCreate"/>
-						<Button class="editIcon" text="Delete" tooltip="Delete" enabled="false"/>
+						<Button class="editIcon" id="delete" text="Delete" tooltip="Delete" enabled="false" press="onDelete"/>
 					</Toolbar>
 					<Table class="table" width="90%" id="table" items="{ path: '/SOHeadSet', parameters: { expand: 'HeadToItems'}}"
 						noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid">
 						<columns>
+							<Column hAlign="Center">
+								<CheckBox id="selectAllCheckbox" select="onSelectAll" text=""/>
+							</Column>
 							<Column id="VBELNCol" hAlign="Center">
 								<Text text="Sales Document" id="VBELN"/>
 							</Column>
@@ -51,6 +54,7 @@
 						<items>
 							<ColumnListItem type="Navigation" press=".onPress" vAlign="Middle">
 								<cells>
+									<CheckBox selected="{Selected}" select="onItemSelect"/>
 									<ObjectIdentifier id="VBELNText" title="{Vbeln}"/>
 									<Text id="ERDATText" text="{Erdat}"/>
 									<Text id="VPRGRText" text="{Vprgr}"/>

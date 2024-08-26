@@ -5,7 +5,7 @@
 		<pages>
 			<Page id="page">
 				<content>
-				<OverflowToolbar class="footer" id="footer2">
+					<OverflowToolbar class="footer" id="footer2">
 						<Button text="save" class="createBtn" press=".onSave"/>
 						<Button text="Cancel" class="cancel" press=".onCancel"/>
 					</OverflowToolbar>
@@ -18,23 +18,27 @@
 											<VBox>
 												<f:SimpleForm editable="false" id="form" layout="ColumnLayout" columnsM="2" columnsL="3">
 													<Label text="Created on" labelFor="ERDAT"/>
-													<Input id="ERDAT" class="pressEdit"/>
+													<Input id="ERDAT"/>
 													<Label text="Proposed date type" labelFor="VPRGR"/>
-													<Input id="VPRGR" class="pressEdit"/>
+													<Input id="VPRGR"/>
 													<Label text="Created by" labelFor="ERNAM"/>
-													<Input id="ERNAM" class="pressEdit"/>
+													<Input id="ERNAM"/>
 													<Label text="Sales Doc. Type" labelFor="AUART"/>
-													<Input id="AUART" class="pressEdit"/>
+													<Input id="AUART"/>
 													<Label text="Net value" labelFor="NETWR"/>
-													<Input id="NETWR" class="pressEdit"/>
+													<Input id="NETWR"/>
+													<Label text="Division" labelFor="SPART"/>
+													<Input id="SPART"/>
 													<Label text="Doc. Currency" labelFor="WAERK"/>
-													<Input id="WAERK" class="pressEdit"/>
+													<Input id="WAERK"/>
 													<Label text="Sales Org." labelFor="VKORG"/>
-													<Input id="VKORG" class="pressEdit"/>
+													<Input id="VKORG"/>
+													<Label text="Distr. Channel" labelFor="VTWEG"/>
+													<Input id="VTWEG"/>
 													<Label text="Warranty Date" labelFor="GWLDT"/>
-													<Input id="GWLDT" class="pressEdit"/>
+													<Input id="GWLDT"/>
 													<Label text="Customer" labelFor="KUNNR"/>
-													<Input id="KUNNR" class="pressEdit"/>
+													<Input id="KUNNR"/>
 												</f:SimpleForm>
 											</VBox>
 										</uxap:blocks>
@@ -50,26 +54,26 @@
 													<f:content>
 														<core:Title text="General Details"/>
 														<Label text="Document Date" labelFor="AUDAT"/>
-														<Input id="AUDAT" class="pressEdit"/>
+														<Input id="AUDAT"/>
 														<Label text="Sales Org." labelFor="VKORG1"/>
-														<Input id="VKORG1" class="pressEdit "/>
+														<Input id="VKORG1"/>
 														<Label text="Created by" labelFor="ERNAM1"/>
-														<Input id="ERNAM1" class="pressEdit"/>
+														<Input id="ERNAM1"/>
 														<Label text="Created on" labelFor="ERDAT1"/>
-														<Input id="ERDAT1" class="pressEdit"/>
+														<Input id="ERDAT1"/>
 														<Label text="Order reason" labelFor="AUGRU"/>
-														<Input id="AUGRU" class="pressEdit"/>
+														<Input id="AUGRU"/>
 														<Label text="Sales Office" labelFor="VKBUR"/>
-														<Input id="VKBUR" class="pressEdit"/>
+														<Input id="VKBUR"/>
 														<core:Title text="Pricing and Statistics"/>
 														<Label text="Doc. Currency" labelFor="WAERK1"/>
-														<Input id="WAERK1" class="pressEdit"/>
+														<Input id="WAERK1"/>
 														<Label text="Procedure" labelFor="KALSM"/>
-														<Input id="KALSM" class="pressEdit"/>
+														<Input id="KALSM"/>
 														<Label text="Customer purchase order number " labelFor="BSTNK"/>
-														<Input id="BSTNK" class="pressEdit"/>
+														<Input id="BSTNK"/>
 														<Label text="Customer purchase order type" labelFor="BSARK"/>
-														<Input id="BSARK" class="pressEdit"/>
+														<Input id="BSARK"/>
 													</f:content>
 												</f:SimpleForm>
 											</VBox>
@@ -84,13 +88,13 @@
 											<VBox>
 												<f:SimpleForm editable="false" id="form2" layout="ColumnLayout" columnsM="2" columnsL="3">
 													<Label text="Complete delivery" labelFor="AUTLF"/>
-													<Input id="AUTLF" class="pressEdit "/>
+													<Input id="AUTLF"/>
 													<Label text="Delivery block " labelFor="LIFSK"/>
-													<Input id="LIFSK" class="pressEdit "/>
+													<Input id="LIFSK"/>
 													<Label text="Shipping Cond." labelFor="VSBED"/>
-													<Input id="VSBED" class="pressEdit "/>
+													<Input id="VSBED"/>
 													<Label text="DG Mgmt Profile" labelFor="PROLI"/>
-													<Input id="PROLI" class="pressEdit "/>
+													<Input id="PROLI"/>
 												</f:SimpleForm>
 											</VBox>
 										</uxap:blocks>
@@ -104,15 +108,15 @@
 											<VBox>
 												<f:SimpleForm editable="false" id="form3" layout="ColumnLayout" columnsM="2" columnsL="3">
 													<Label text="Company code to be billed " labelFor="BUKRSVF"/>
-													<Input id="BUKRSVF" class="pressEdit "/>
+													<Input id="BUKRSVF"/>
 													<Label text="EU Triang. Deal" labelFor="XEGDR"/>
-													<Input id="XEGDR" class="pressEdit"/>
+													<Input id="XEGDR"/>
 													<Label text="Billing block" labelFor="FAKSK"/>
-													<Input id="FAKSK" class="pressEdit"/>
+													<Input id="FAKSK"/>
 													<Label text="Alt. tax classific." labelFor="TAXK1"/>
-													<Input id="TAXK1" class="pressEdit"/>
+													<Input id="TAXK1"/>
 													<Label text="Tax departure country" labelFor="LANDTX"/>
-													<Input id="LANDTX" class="pressEdit"/>
+													<Input id="LANDTX"/>
 												</f:SimpleForm>
 											</VBox>
 										</uxap:blocks>
@@ -126,7 +130,7 @@
 											<VBox>
 												<f:SimpleForm editable="false" id="form4" layout="ColumnLayout" columnsM="2" columnsL="3">
 													<Label text="Net value " labelFor="NETWR1"/>
-													<Input id="NETWR1" class="pressEdit "/>
+													<Input id="NETWR1"/>
 												</f:SimpleForm>
 											</VBox>
 										</uxap:blocks>
@@ -149,11 +153,11 @@
 														<Column id="MATWACol" hAlign="Center">
 															<Text text="Material Entered" id="MATWA"/>
 														</Column>
-														<Column id="MATKLCol" hAlign="Center">
-															<Text text="Material Group" id="MATKL"/>
+														<Column id="ZMENGCol" hAlign="Center">
+															<Text text="Target quantity " id="ZMENG"/>
 														</Column>
-														<Column id="ARKTXCol" hAlign="Center">
-															<Text text="Description" id="ARKTX"/>
+														<Column id="KWMENGCol" hAlign="Center">
+															<Text text="Order quantity" id="KWMENG"/>
 														</Column>
 														<Column id="PSTYVKCol" hAlign="Center">
 															<Text text="Item category" id="PSTYV"/>
@@ -164,22 +168,22 @@
 														<Column id="NETWRCol" hAlign="Center">
 															<Text text="Net value" id="NETWRI"/>
 														</Column>
-														<Column id="WAERKCol" hAlign="Center">
-															<Text text="Doc. Currency" id="WAERKI"/>
+														<Column id="WERKSCol" hAlign="Center">
+															<Text text="Plant" id="WERKS"/>
 														</Column>
 													</columns>
 													<items>
 														<ColumnListItem vAlign="Middle">
 															<cells>
-																<Input class="pressEdit" id="Posnr"/>
-																<Input class="pressEdit" id="Matnr"/>
-																<Input class="pressEdit" id="Matwa"/>
-																<Input class="pressEdit" id="Matkl"/>
-																<Input class="pressEdit" id="Arktx"/>
-																<Input class="pressEdit" id="Pstyv"/>
-																<Input class="pressEdit" id="Zieme"/>
-																<Input class="pressEdit" id="Netwr"/>
-																<Input class="pressEdit" id="Waerk"/>
+																<Input id="Posnr"/>
+																<Input id="Matnr"/>
+																<Input id="Matwa"/>
+																<Input id="Zmeng"/>
+																<Input id="Kwmeng"/>
+																<Input id="Pstyv"/>
+																<Input id="Zieme"/>
+																<Input id="Netwr"/>
+																<Input id="Werks"/>
 															</cells>
 														</ColumnListItem>
 													</items>
@@ -193,7 +197,6 @@
 								</uxap:subSections>
 							</uxap:ObjectPageSection>
 						</uxap:sections>
-						
 					</uxap:ObjectPageLayout>
 				</content>
 			</Page>

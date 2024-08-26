@@ -52,11 +52,11 @@ sap.ui.define([
 					"sap-client": "110"
 				},
 				success: function(oData) {
-					
+
 					// Optionally, set the fetched data to a local JSON model for further processing
 					var oLocalModel = new sap.ui.model.json.JSONModel(oData.results);
 					this.getView().setModel(oLocalModel, "localModel");
-				
+
 				}.bind(this),
 				error: function(oError) {
 					// Handle the error response here
@@ -69,7 +69,6 @@ sap.ui.define([
 			// var refNo = oEvent.getSource().getBindingContext('SCHeaderSet2').getObject().ZdateSta;
 
 			var Vbeln = oEvent.getSource().getBindingContext('undefined').getObject().Vbeln;
-			
 
 			oRouter.navTo("View2", {
 				Vbeln: Vbeln

@@ -9,8 +9,180 @@
 						<Button text="Create" class="createBtn" press=".onCreate"/>
 						<Button text="Cancel" class="cancel" press=".onCancel"/>
 					</OverflowToolbar>
-				
-					<mvc:XMLView viewName="Task4.view.input"/>
+					<uxap:ObjectPageLayout id="ObjectPageLayout">
+						<uxap:sections>
+							<uxap:ObjectPageSection id="section1" title="General Header">
+								<uxap:subSections>
+									<uxap:ObjectPageSubSection>
+										<uxap:blocks>
+											<VBox>
+												<f:SimpleForm editable="true" id="form" layout="ColumnLayout" columnsM="2" columnsL="3">
+													<Label text="Proposed date type" labelFor="VPRGR"/>
+													<Input id="VPRGR" value="{headerModel>/Vprgr}"/>
+													<Label text="Sales Doc. Type" labelFor="AUART"/>
+													<Input id="AUART" value="{headerModel>/Auart}"/>
+													<Label text="Division" labelFor="SPART"/>
+													<Input id="SPART" value="{headerModel>/Spart}"/>
+													<Label text="Distr. Channel" labelFor="VTWEG"/>
+													<Input id="VTWEG" value="{headerModel>/Vtweg}"/>
+													<Label text="Warranty Date" labelFor="GWLDT"/>
+													<Input id="GWLDT" value="{headerModel>/Gwldt}"/>
+													<Label text="Customer" labelFor="KUNNR"/>
+													<Input id="KUNNR" value="{headerModel>/Kunnr}"/>
+												</f:SimpleForm>
+											</VBox>
+										</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+								</uxap:subSections>
+							</uxap:ObjectPageSection>
+							<uxap:ObjectPageSection id="section2" title="Sales">
+								<uxap:subSections>
+									<uxap:ObjectPageSubSection>
+										<uxap:blocks>
+											<VBox>
+												<f:SimpleForm editable="true" id="form1" layout="ColumnLayout" columnsM="2" columnsL="3">
+													<f:content>
+														<core:Title text="General Details"/>
+														<Label text="Document Date" labelFor="AUDAT"/>
+														<Input id="AUDAT" value="{headerModel>/Audat}"/>
+														<Label text="Sales Org." labelFor="VKORG"/>
+														<Input id="VKORG" value="{headerModel>/Vkorg}"/>
+														<Label text="Created by" labelFor="ERNAM"/>
+														<Input id="ERNAM" value="{headerModel>/Ernam}"/>
+														<Label text="Created on" labelFor="ERDAT"/>
+														<Input id="ERDAT" value="{headerModel>/Erdat}"/>
+														<Label text="Order reason" labelFor="AUGRU"/>
+														<Input id="AUGRU" value="{headerModel>/Augru}"/>
+														<Label text="Sales Office" labelFor="VKBUR"/>
+														<Input id="VKBUR" value="{headerModel>/Vkbur}"/>
+														<core:Title text="Pricing and Statistics"/>
+														<Label text="Doc. Currency" labelFor="WAERK"/>
+														<Input id="WAERK" value="{headerModel>/Waerk}"/>
+														<Label text="Procedure" labelFor="KALSM"/>
+														<Input id="KALSM" value="{headerModel>/Kalsm}"/>
+														<Label text="Customer purchase order number " labelFor="BSTNK"/>
+														<Input id="BSTNK" value="{headerModel>/Bstnk}"/>
+														<Label text="Customer purchase order type" labelFor="BSARK"/>
+														<Input id="BSARK" value="{headerModel>/Bsark}"/>
+													</f:content>
+												</f:SimpleForm>
+											</VBox>
+										</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+								</uxap:subSections>
+							</uxap:ObjectPageSection>
+							<uxap:ObjectPageSection id="section3" title="Shipping">
+								<uxap:subSections>
+									<uxap:ObjectPageSubSection>
+										<uxap:blocks>
+											<VBox>
+												<f:SimpleForm editable="true" id="form2" layout="ColumnLayout" columnsM="2" columnsL="3">
+													<Label text="Complete delivery" labelFor="AUTLF"/>
+													<Input id="AUTLF" value="{headerModel>/Autlf}"/>
+													<Label text="Delivery block " labelFor="LIFSK"/>
+													<Input id="LIFSK" value="{headerModel>/Lifsk}"/>
+													<Label text="Shipping Cond." labelFor="VSBED"/>
+													<Input id="VSBED" value="{headerModel>/Vsbed}"/>
+													<Label text="DG Mgmt Profile" labelFor="PROLI"/>
+													<Input id="PROLI" value="{headerModel>/Proli}"/>
+												</f:SimpleForm>
+											</VBox>
+										</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+								</uxap:subSections>
+							</uxap:ObjectPageSection>
+							<uxap:ObjectPageSection id="section4" title="Billing Document">
+								<uxap:subSections>
+									<uxap:ObjectPageSubSection>
+										<uxap:blocks>
+											<VBox>
+												<f:SimpleForm editable="true" id="form3" layout="ColumnLayout" columnsM="2" columnsL="3">
+													<Label text="Company code to be billed " labelFor="BUKRSVF"/>
+													<Input id="BUKRSVF" value="{headerModel>/BukrsVf}"/>
+													<Label text="EU Triang. Deal" labelFor="XEGDR"/>
+													<Input id="XEGDR" value="{headerModel>/Xegdr}"/>
+													<Label text="Billing block" labelFor="FAKSK"/>
+													<Input id="FAKSK" value="{headerModel>/Faksk}"/>
+													<Label text="Alt. tax classific." labelFor="TAXK1"/>
+													<Input id="TAXK1" value="{headerModel>/Taxk1}"/>
+													<Label text="Tax departure country" labelFor="LANDTX"/>
+													<Input id="LANDTX" value="{headerModel>/Landtx}"/>
+												</f:SimpleForm>
+											</VBox>
+										</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+								</uxap:subSections>
+							</uxap:ObjectPageSection>
+							<uxap:ObjectPageSection id="section6" title="Items">
+								<uxap:subSections>
+									<uxap:ObjectPageSubSection>
+										<uxap:blocks>
+											<VBox>
+												<Toolbar>
+													<ToolbarSpacer/>
+													<Button icon="sap-icon://delete" text="Delete" press="onDelete"/>
+												</Toolbar>
+												<Table class="table3" width="100%" id="table" items="{path: 'headerModel>/HeadToItems'}" noDataText="{worklistView>/tableNoDataText}"
+													backgroundDesign="Solid">
+													<columns>
+														<Column>
+															<CheckBox id="selectAllCheckbox" select="onSelectAll" />
+														</Column>
+														<Column id="POSNRCol" hAlign="Center">
+															<Text text="Item" id="POSNR"/>
+														</Column>
+														<Column id="MATNRCol" hAlign="Center">
+															<Text text="Material" id="MATNR"/>
+														</Column>
+														<Column id="MATWACol" hAlign="Center">
+															<Text text="Material Entered" id="MATWA"/>
+														</Column>
+														<Column id="ZMENGCol" hAlign="Center">
+															<Text text="Target quantity " id="ZMENG"/>
+														</Column>
+														<Column id="KWMENGCol" hAlign="Center">
+															<Text text="Order quantity" id="KWMENG"/>
+														</Column>
+														<Column id="PSTYVKCol" hAlign="Center">
+															<Text text="Item category" id="PSTYV"/>
+														</Column>
+														<Column id="ZIEMECol" hAlign="Center">
+															<Text text="Target qty UoM" id="ZIEME"/>
+														</Column>
+														<Column id="WERKSCol" hAlign="Center">
+															<Text text="Plant" id="WERKS"/>
+														</Column>
+													</columns>
+													<items>
+														<ColumnListItem vAlign="Middle">
+															<cells>
+																<CheckBox selected="{headerModel>Selected}" select="onItemSelect"/>
+																<Input id="Posnr" value="{headerModel>Posnr}"/>
+																<Input id="Matnr" value="{headerModel>Matnr}"/>
+																<Input id="Matwa" value="{headerModel>Matwa}"/>
+																<Input id="Zmeng" value="{headerModel>Zmeng}"/>
+																<Input id="Kwmeng" value="{headerModel>Kwmeng}"/>
+																<Input id="Pstyv" value="{headerModel>Pstyv}"/>
+																<Input id="Zieme" value="{headerModel>Zieme}"/>
+																<Input id="Werks" value="{headerModel>Werks}"/>
+															</cells>
+														</ColumnListItem>
+													</items>
+													<customData>
+														<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>
+													</customData>
+												</Table>
+												<Toolbar>
+													<ToolbarSpacer/>
+													<Button icon="sap-icon://add" press="onAddRow"/>
+												</Toolbar>
+											</VBox>
+										</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+								</uxap:subSections>
+							</uxap:ObjectPageSection>
+						</uxap:sections>
+					</uxap:ObjectPageLayout>
 				</content>
 			</Page>
 		</pages>
