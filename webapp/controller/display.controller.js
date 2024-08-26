@@ -16,7 +16,6 @@ sap.ui.define([
 
 			var sVbeln = SharedData.getData("Vbeln");
 
-			console.log("Vbeln:", sVbeln);
 			var sServiceUri = "https://dev.monairy.com/sap/opu/odata/SAP/ZGW_SO_SRV/";
 			var oModel = new sap.ui.model.odata.ODataModel(sServiceUri, {
 				json: true

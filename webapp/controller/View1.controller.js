@@ -9,6 +9,8 @@ sap.ui.define([
 
 	return Controller.extend("Task4.controller.View1", {
 		onInit: function() {
+			this.oTable = this.byId("table");
+			this.oDeleteButton = this.byId("delete");
 			// Create the OData model directly in the controller
 			var oModel = new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/SAP/ZGW_SO_SRV/", {
 				useBatch: false, // Optional, disable batch processing if not needed
@@ -78,6 +80,52 @@ sap.ui.define([
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 
 			oRouter.navTo("View3");
+		},
+
+		// Handle Select All checkbox behavior
+		onSelectAll: function(oEvent) {
+			var bSelected = oEvent.getParameter("selected");
+			var aItems = this.oTable.getItems();
+
+			// Set the selected state for all checkboxes in the rows
+			aItems.forEach(function(oItem) {
+				oItem.getCells()[0].setSelected(bSelected); // Assuming the first cell contains the checkbox
+			});
+
+			// Enable or disable the Delete button based on selection
+			this._updateDeleteButtonState();
+		},
+		onItemSelect: function() {
+
+			var aItems = this.oTable.getItems();
+			var bAllSelected = true;
+			var bAnySelected = false;
+
+			// Check if all or any checkboxes are selected
+			aItems.forEach(function(oItem) {
+				var bSelected = oItem.getCells()[0].getSelected();
+				if (!bSelected) {
+					bAllSelected = false;
+				} else {
+					bAnySelected = true;
+				}
+			});
+
+			// Update the "Select All" checkbox state
+			this.byId("selectAllCheckbox").setSelected(bAllSelected);
+
+			// Enable or disable the Delete button based on selection
+			this._updateDeleteButtonState(bAnySelected);
+		},
+
+		// Update the Delete button state based on checkbox selections
+		_updateDeleteButtonState: function() {
+			var aItems = this.oTable.getItems();
+			var bAnySelected = aItems.some(function(oItem) {
+				return oItem.getCells()[0].getSelected();
+			});
+
+			this.oDeleteButton.setEnabled(bAnySelected);
 		},
 		onFilter: function() {
 			var sVbelnValue = this.getView().byId("inputVbeln").getValue();

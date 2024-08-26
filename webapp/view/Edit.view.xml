@@ -10,6 +10,9 @@
 						<Button text="Cancel" class="cancel" press=".onCancel"/>
 					</OverflowToolbar>
 					<uxap:ObjectPageLayout id="ObjectPageLayout">
+						<uxap:headerTitle>
+							<uxap:ObjectPageHeader id="ObjectPageLayoutHeaderTitle" isObjectTitleAlwaysVisible="true" isActionAreaAlwaysVisible="true"></uxap:ObjectPageHeader>
+						</uxap:headerTitle>
 						<uxap:sections>
 							<uxap:ObjectPageSection id="section1" title="General Header">
 								<uxap:subSections>
@@ -17,28 +20,20 @@
 										<uxap:blocks>
 											<VBox>
 												<f:SimpleForm editable="false" id="form" layout="ColumnLayout" columnsM="2" columnsL="3">
-													<Label text="Created on" labelFor="ERDAT"/>
-													<Input id="ERDAT"/>
+													<Label text="Sales Document" labelFor="VBELN"/>
+													<Input id="VBELN" value="{myModel>/VBELN}" enabled="false"/>
 													<Label text="Proposed date type" labelFor="VPRGR"/>
-													<Input id="VPRGR"/>
-													<Label text="Created by" labelFor="ERNAM"/>
-													<Input id="ERNAM"/>
+													<Input id="VPRGR" value="{myModel>/VPRGR}"/>
 													<Label text="Sales Doc. Type" labelFor="AUART"/>
-													<Input id="AUART"/>
-													<Label text="Net value" labelFor="NETWR"/>
-													<Input id="NETWR"/>
+													<Input id="AUART" value="{myModel>/AUART}"/>
 													<Label text="Division" labelFor="SPART"/>
-													<Input id="SPART"/>
-													<Label text="Doc. Currency" labelFor="WAERK"/>
-													<Input id="WAERK"/>
-													<Label text="Sales Org." labelFor="VKORG"/>
-													<Input id="VKORG"/>
+													<Input id="SPART" value="{myModel>/SPART}"/>
 													<Label text="Distr. Channel" labelFor="VTWEG"/>
-													<Input id="VTWEG"/>
+													<Input id="VTWEG" value="{myModel>/VTWEG}"/>
 													<Label text="Warranty Date" labelFor="GWLDT"/>
-													<Input id="GWLDT"/>
+													<Input id="GWLDT" value="{myModel>/GWLDT}"/>
 													<Label text="Customer" labelFor="KUNNR"/>
-													<Input id="KUNNR"/>
+													<Input id="KUNNR" value="{myModel>/KUNNR}"/>
 												</f:SimpleForm>
 											</VBox>
 										</uxap:blocks>
@@ -54,26 +49,26 @@
 													<f:content>
 														<core:Title text="General Details"/>
 														<Label text="Document Date" labelFor="AUDAT"/>
-														<Input id="AUDAT"/>
-														<Label text="Sales Org." labelFor="VKORG1"/>
-														<Input id="VKORG1"/>
-														<Label text="Created by" labelFor="ERNAM1"/>
-														<Input id="ERNAM1"/>
-														<Label text="Created on" labelFor="ERDAT1"/>
-														<Input id="ERDAT1"/>
+														<Input id="AUDAT" value="{myModel>/AUDAT}"/>
+														<Label text="Sales Org." labelFor="VKORG"/>
+														<Input id="VKORG" value="{myModel>/VKORG}"/>
+														<Label text="Created by" labelFor="ERNAM"/>
+														<Input id="ERNAM" value="{myModel>/ERNAM}"/>
+														<Label text="Created on" labelFor="ERDAT"/>
+														<Input id="ERDAT" value="{myModel>/ERDAT}"/>
 														<Label text="Order reason" labelFor="AUGRU"/>
-														<Input id="AUGRU"/>
+														<Input id="AUGRU" value="{myModel>/AUGRU}"/>
 														<Label text="Sales Office" labelFor="VKBUR"/>
-														<Input id="VKBUR"/>
+														<Input id="VKBUR" value="{myModel>/VKBUR}"/>
 														<core:Title text="Pricing and Statistics"/>
-														<Label text="Doc. Currency" labelFor="WAERK1"/>
-														<Input id="WAERK1"/>
+														<Label text="Doc. Currency" labelFor="WAERK"/>
+														<Input id="WAERK" value="{myModel>/WAERK}"/>
 														<Label text="Procedure" labelFor="KALSM"/>
-														<Input id="KALSM"/>
+														<Input id="KALSM" value="{myModel>/KALSM}"/>
 														<Label text="Customer purchase order number " labelFor="BSTNK"/>
-														<Input id="BSTNK"/>
+														<Input id="BSTNK" value="{myModel>/BSTNK}"/>
 														<Label text="Customer purchase order type" labelFor="BSARK"/>
-														<Input id="BSARK"/>
+														<Input id="BSARK" value="{myModel>/BSARK}"/>
 													</f:content>
 												</f:SimpleForm>
 											</VBox>
@@ -88,13 +83,13 @@
 											<VBox>
 												<f:SimpleForm editable="false" id="form2" layout="ColumnLayout" columnsM="2" columnsL="3">
 													<Label text="Complete delivery" labelFor="AUTLF"/>
-													<Input id="AUTLF"/>
+													<Input id="AUTLF" value="{myModel>/AUTLF}"/>
 													<Label text="Delivery block " labelFor="LIFSK"/>
-													<Input id="LIFSK"/>
+													<Input id="LIFSK" value="{myModel>/LIFSK}"/>
 													<Label text="Shipping Cond." labelFor="VSBED"/>
-													<Input id="VSBED"/>
+													<Input id="VSBED" value="{myModel>/VSBED}"/>
 													<Label text="DG Mgmt Profile" labelFor="PROLI"/>
-													<Input id="PROLI"/>
+													<Input id="PROLI" value="{myModel>/PROLI}"/>
 												</f:SimpleForm>
 											</VBox>
 										</uxap:blocks>
@@ -108,15 +103,15 @@
 											<VBox>
 												<f:SimpleForm editable="false" id="form3" layout="ColumnLayout" columnsM="2" columnsL="3">
 													<Label text="Company code to be billed " labelFor="BUKRSVF"/>
-													<Input id="BUKRSVF"/>
+													<Input id="BUKRSVF" value="{myModel>/BUKRSVF}"/>
 													<Label text="EU Triang. Deal" labelFor="XEGDR"/>
-													<Input id="XEGDR"/>
+													<Input id="XEGDR" value="{myModel>/XEGDR}"/>
 													<Label text="Billing block" labelFor="FAKSK"/>
-													<Input id="FAKSK"/>
+													<Input id="FAKSK" value="{myModel>/FAKSK}"/>
 													<Label text="Alt. tax classific." labelFor="TAXK1"/>
-													<Input id="TAXK1"/>
+													<Input id="TAXK1" value="{myModel>/TAXK1}"/>
 													<Label text="Tax departure country" labelFor="LANDTX"/>
-													<Input id="LANDTX"/>
+													<Input id="LANDTX" value="{myModel>/LANDTX}"/>
 												</f:SimpleForm>
 											</VBox>
 										</uxap:blocks>
@@ -129,8 +124,8 @@
 										<uxap:blocks>
 											<VBox>
 												<f:SimpleForm editable="false" id="form4" layout="ColumnLayout" columnsM="2" columnsL="3">
-													<Label text="Net value " labelFor="NETWR1"/>
-													<Input id="NETWR1"/>
+													<Label text="Net value" labelFor="NETWR1"/>
+													<Input id="NETWR1" enabled="false" value="{myModel>/NETWR1}"/>
 												</f:SimpleForm>
 											</VBox>
 										</uxap:blocks>
@@ -142,8 +137,15 @@
 									<uxap:ObjectPageSubSection>
 										<uxap:blocks>
 											<VBox>
-												<Table class="table" width="100%" id="table" noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid">
+												<Toolbar>
+													<ToolbarSpacer/>
+													<Button icon="sap-icon://delete" text="Delete" press="onDelete"/>
+												</Toolbar>
+												<Table class="table" width="100%" id="table" items="{myModel>/HeadToItems}" noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid">
 													<columns>
+														<Column>
+															<CheckBox id="selectAllCheckbox" select="onSelectAll"/>
+														</Column>
 														<Column id="POSNRCol" hAlign="Center">
 															<Text text="Item" id="POSNR"/>
 														</Column>
@@ -166,7 +168,7 @@
 															<Text text="Target qty UoM" id="ZIEME"/>
 														</Column>
 														<Column id="NETWRCol" hAlign="Center">
-															<Text text="Net value" id="NETWRI"/>
+															<Text text="Net Value" id="NETWR"/>
 														</Column>
 														<Column id="WERKSCol" hAlign="Center">
 															<Text text="Plant" id="WERKS"/>
@@ -175,15 +177,16 @@
 													<items>
 														<ColumnListItem vAlign="Middle">
 															<cells>
-																<Input id="Posnr"/>
-																<Input id="Matnr"/>
-																<Input id="Matwa"/>
-																<Input id="Zmeng"/>
-																<Input id="Kwmeng"/>
-																<Input id="Pstyv"/>
-																<Input id="Zieme"/>
-																<Input id="Netwr"/>
-																<Input id="Werks"/>
+																<CheckBox selected="{myModel>Selected}" select="onItemSelect"/>
+																<Input id="Posnr" value="{myModel>Posnr}"/>
+																<Input id="Matnr" value="{myModel>Matnr}"/>
+																<Input id="Matwa" value="{myModel>Matwa}"/>
+																<Input id="Zmeng" value="{myModel>Zmeng}"/>
+																<Input id="Kwmeng" value="{myModel>Kwmeng}"/>
+																<Input id="Pstyv" value="{myModel>Pstyv}"/>
+																<Input id="Zieme" value="{myModel>Zieme}"/>
+																<Input id="Netwr" value="{myModel>Netwr}" enabled="false"/>
+																<Input id="Werks" value="{myModel>Werks}"/>
 															</cells>
 														</ColumnListItem>
 													</items>
@@ -191,6 +194,10 @@
 														<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>
 													</customData>
 												</Table>
+												<Toolbar>
+													<ToolbarSpacer/>
+													<Button icon="sap-icon://add" press="onAddRow"/>
+												</Toolbar>
 											</VBox>
 										</uxap:blocks>
 									</uxap:ObjectPageSubSection>
