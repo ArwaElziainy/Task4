@@ -8,7 +8,6 @@
 				<uxap:ObjectPageHeader id="ObjectPageLayoutHeaderTitle"  isObjectTitleAlwaysVisible="false" isActionAreaAlwaysVisible="true">
 					<Button class="edit" text="Edit" press=".onEdit"/>
 					<Button class="delete" text="Delete"/>
-					<!--<ObjectAttribute id="objectAttribute"/>-->
 				</uxap:ObjectPageHeader>
 			</uxap:headerTitle>
 			<uxap:sections>
@@ -143,7 +142,7 @@
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
 								<VBox>
-									<Table class="table" width="100%" id="table" items="{/}" noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid">
+									<Table class="table" width="97%" id="table" items="{/}" noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid">
 										<columns>
 											<Column id="POSNRCol" hAlign="Center">
 												<Text text="Item" id="POSNR"/>

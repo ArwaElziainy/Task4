@@ -71,7 +71,25 @@ sap.ui.define([
 			var oModel = this.getView().getModel("headerModel");
 			var oData = oModel.getData();
 			console.log(oData)
-				// Save the sales order using the OData model
+
+			// Remove the 'Selected' property from each item
+			oData.HeadToItems = oData.HeadToItems.map(function(item) {
+				// Create a copy of the item without the 'Selected' property
+				return {
+					Posnr: item.Posnr,
+					Matnr: item.Matnr,
+					Matwa: item.Matwa,
+					Zmeng: item.Zmeng,
+					Kwmeng: item.Kwmeng,
+					Pstyv: item.Pstyv,
+					Zieme: item.Zieme,
+					Werks: item.Werks
+				};
+			});
+
+			console.log(oData);
+
+			// Save the sales order using the OData model
 			this.oODataModel.create("/SOHeadSet", oData, {
 				success: function(oData2) {
 					console.log(oData2);
@@ -189,7 +207,7 @@ sap.ui.define([
 			});
 
 			oModel.setProperty("/HeadToItems", aUpdatedItems);
-			sap.m.MessageToast.show("Selected items removed from the list.");
+			sap.m.MessageToast.show("Selected items removed successfully.");
 
 		}
 	});

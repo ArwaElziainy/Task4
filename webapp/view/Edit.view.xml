@@ -137,7 +137,7 @@
 									<uxap:ObjectPageSubSection>
 										<uxap:blocks>
 											<VBox>
-												<Toolbar>
+												<Toolbar class="margin-top">
 													<ToolbarSpacer/>
 													<Button icon="sap-icon://delete" text="Delete" press="onDelete"/>
 												</Toolbar>
@@ -194,7 +194,7 @@
 														<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>
 													</customData>
 												</Table>
-												<Toolbar>
+												<Toolbar class="border-bottom">
 													<ToolbarSpacer/>
 													<Button icon="sap-icon://add" press="onAddRow"/>
 												</Toolbar>

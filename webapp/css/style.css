@@ -1,7 +1,13 @@
-html[data-sap-ui-animation='on'] .sapMNavItem,
-html[data-sap-ui-animation='on'] .sapMNavItem.sapMPage {
-    background-color: #fff;
-}
+/*html[data-sap-ui-animation='on'] .sapMNavItem,*/
+
+
+/*html[data-sap-ui-animation='on'] .sapMNavItem.sapMPage {*/
+
+
+/*    background-color: #fff;*/
+
+
+/*}*/
 
 
 /*View1*/
@@ -38,8 +44,14 @@ html.sap-desktop .sapMBtn:focus>.sapMFocusable {
 }
 
 .sapMIBar {
-    margin: 10px auto 0 auto !important;
+    margin: 0 auto 0 auto !important;
     background-color: #ffffff !important;
+}
+
+.margin-top.sapMIBar {
+    margin-top: 10px !important;
+    border-top-right-radius: 10px ;
+    border-top-left-radius: 10px ;
 }
 
 .sapMIBar .sapMBtnInner {
@@ -104,6 +116,10 @@ Button.go span bdi:hover {
 
 /*Table*/
 
+.sapMColumnHeader .sapMText {
+    font-weight: bold;
+}
+
 .sapMTBNewFlex {
     justify-content: flex-end !important;
 }
@@ -117,7 +133,7 @@ Button.go span bdi:hover {
 }
 
 .table {
-    margin: 30px auto;
+    margin: 0 auto;
 }
 
 
@@ -191,7 +207,10 @@ Button.go span bdi:hover {
 
 
 /*View3*/
-
+.border-bottom.sapMIBar {
+    border-bottom-right-radius: 10px ;
+    border-bottom-left-radius: 10px ;
+}
 .footer.sapMIBar {
     position: fixed;
     bottom: 10px;
@@ -224,9 +243,11 @@ Button.go span bdi:hover {
     width: 1rem;
     border-radius: 5px;
 }
-.sapUiRespGrid.sapUiRespGridHSpace1{
-	margin-bottom:50px;
+
+.sapUiRespGrid.sapUiRespGridHSpace1 {
+    margin-bottom: 50px;
 }
+
 
 /*input view*/
 

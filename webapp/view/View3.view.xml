@@ -3,7 +3,7 @@
 	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:uxap="sap.uxap" xmlns="sap.m" xmlns:l="sap.ui.layout">
 	<App>
 		<pages>
-			<Page title="Monairy" id="page">
+			<Page id="page">
 				<content>
 					<OverflowToolbar class="footer">
 						<Button text="Create" class="createBtn" press=".onCreate"/>
@@ -118,7 +118,7 @@
 									<uxap:ObjectPageSubSection>
 										<uxap:blocks>
 											<VBox>
-												<Toolbar>
+												<Toolbar class="margin-top">
 													<ToolbarSpacer/>
 													<Button icon="sap-icon://delete" text="Delete" press="onDelete"/>
 												</Toolbar>
@@ -172,7 +172,7 @@
 														<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>
 													</customData>
 												</Table>
-												<Toolbar>
+												<Toolbar class="border-bottom">
 													<ToolbarSpacer/>
 													<Button icon="sap-icon://add" press="onAddRow"/>
 												</Toolbar>

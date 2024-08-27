@@ -1,4 +1,3 @@
-
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/json/JSONModel",
@@ -131,10 +130,21 @@ sap.ui.define([
 
 			// Filter out the checked rows
 			var aNewData = aData.filter(function(oRow) {
-				return !oRow.Selected;
+				return oRow.Selected;
+			});
+			// Check if there are selected items
+			if (aNewData.length === 0) {
+				sap.m.MessageToast.show("No items selected for deletion.");
+				return;
+			}
+
+			// Remove selected items from the model
+			var aUpdatedItems = aData.filter(function(item) {
+				return !item.Selected;
 			});
 
-			oModel.setProperty("/HeadToItems", aNewData);
+			oModel.setProperty("/HeadToItems", aUpdatedItems);
+			sap.m.MessageToast.show("Selected items removed successfully.");
 		},
 
 		onCancel: function() {
@@ -150,6 +160,7 @@ sap.ui.define([
 		},
 
 		onSave: function() {
+			sap.m.MessageToast.show("Updated Successfully");
 			var oApp = this.getView().getParent();
 
 			XMLView.create({

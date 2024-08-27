@@ -2,7 +2,7 @@
 	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns="sap.m">
 	<App>
 		<pages>
-			<Page title="Monairy">
+			<Page>
 				<content>
 					<Toolbar height="auto">
 						<FlexBox width="100%" alignContent="Center" justifyContent="SpaceAround" alignItems="Center" wrap="Wrap">
@@ -10,7 +10,7 @@
 							<Button class="go" text="Go" width="250px" press=".onGo"/>
 						</FlexBox>
 					</Toolbar>
-					<Toolbar width="90%">
+					<Toolbar width="90%" class="margin-top">
 						<Button class="editIcon create " text="Create" tooltip="Create" press=".onCreate"/>
 						<Button class="editIcon" id="delete" text="Delete" tooltip="Delete" enabled="false" press="onDelete"/>
 					</Toolbar>
@@ -72,14 +72,7 @@
 							<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>
 						</customData>
 					</Table>
-					<!--<smartTable:SmartTable id="LineItemsSmartTable" entitySet="SOHeadSet" smartFilterId="smartFilterBar" tableType="Table"-->
-					<!--	useVariantManagement="true" useTablePersonalisation="true" header="Line Items" showRowCount="true"-->
-					<!--	persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" -->
-					<!--	editTogglable="true" app:useSmartToggle="true">-->
-					<!--	<smartTable:layoutData>-->
-					<!--		<FlexItemData growFactor="1" baseSize="0%"/>-->
-					<!--	</smartTable:layoutData>-->
-					<!--</smartTable:SmartTable>-->
+				
 				</content>
 			</Page>
 		</pages>
