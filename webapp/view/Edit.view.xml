@@ -2,13 +2,7 @@
 	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:uxap="sap.uxap" xmlns="sap.m" xmlns:l="sap.ui.layout">
 	<App>
-		<pages>
-			<Page id="page">
-				<content>
-					<OverflowToolbar class="footer" id="footer2">
-						<Button text="save" class="createBtn" press=".onSave"/>
-						<Button text="Cancel" class="cancel" press=".onCancel"/>
-					</OverflowToolbar>
+		
 					<uxap:ObjectPageLayout id="ObjectPageLayout">
 						<uxap:headerTitle>
 							<uxap:ObjectPageHeader id="ObjectPageLayoutHeaderTitle" isObjectTitleAlwaysVisible="true" isActionAreaAlwaysVisible="true"></uxap:ObjectPageHeader>
@@ -141,7 +135,8 @@
 													<ToolbarSpacer/>
 													<Button icon="sap-icon://delete" text="Delete" press="onDelete"/>
 												</Toolbar>
-												<Table class="table" width="100%" id="table" items="{myModel>/HeadToItems}" noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid">
+												<Table class="table" width="100%" id="table" items="{myModel>/HeadToItems}" noDataText="{worklistView>/tableNoDataText}"
+													backgroundDesign="Solid">
 													<columns>
 														<Column>
 															<CheckBox id="selectAllCheckbox" select="onSelectAll"/>
@@ -198,6 +193,10 @@
 													<ToolbarSpacer/>
 													<Button icon="sap-icon://add" press="onAddRow"/>
 												</Toolbar>
+												<OverflowToolbar class="footer" id="footer2">
+													<Button text="save" class="createBtn" press=".onSave"/>
+													<Button text="Cancel" class="cancel" press=".onCancel"/>
+												</OverflowToolbar>
 											</VBox>
 										</uxap:blocks>
 									</uxap:ObjectPageSubSection>
@@ -205,8 +204,6 @@
 							</uxap:ObjectPageSection>
 						</uxap:sections>
 					</uxap:ObjectPageLayout>
-				</content>
-			</Page>
-		</pages>
+			
 	</App>
 </mvc:View>

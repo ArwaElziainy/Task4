@@ -116,83 +116,106 @@ sap.ui.define([
 			// });
 
 		},
-		onFilter: function(oEvent) {
-			var sQuery = this.byId("inputVbeln").getValue();
+		onFilterItems:function(){
+			
+			var table = "table";
+			var scannerField = this.getView().byId("idScannerInput").getValue();
+			this.filter(scannerField, table);
+		},
+		filter: function(formalData, table) {
+			// var sQuery = this.byId("inputVbeln").getValue();
+			
+			//	if (formalData.length > 0) {
+			var oFilter = new Filter({
+				filters: [
+					//	new Filter("Arktx", FilterOperator.Contains, formalData),
+					new Filter("Vbeln", FilterOperator.StartsWith, formalData)
+				],
+				and: false
+			});
+			//	}
+			var oTable = this.byId(table),
+				oBinding = oTable.getBinding("items");
+			oBinding.filter(oFilter);
+			
+			
+			
+			// var sQuery = this.byId("inputVbeln").getValue();
 
-			if (sQuery) {
-				var sPath = "/SOHeadSet('" + sQuery + "')";
-				var oModel = this.getView().getModel("odataModel");
-				if (!oModel) {
-					console.error("OData model not found");
-					return;
-				}
-				var oTable = this.byId("table");
+			// if (sQuery) {
+			// 	var sPath = "/SOHeadSet('" + sQuery + "')";
+			// 	var oModel = this.getView().getModel("odataModel");
+			// 	if (!oModel) {
+			// 		console.error("OData model not found");
+			// 		return;
+			// 	}
+			// 	var oTable = this.byId("table");
 
-				// Unbind previous items
-				oTable.unbindItems();
+			// 	// Unbind previous items
+			// 	oTable.unbindItems();
 
-				// Fetch specific entry based on sQuery
-				oModel.read(sPath, {
+			// 	// Fetch specific entry based on sQuery
+			// 	oModel.read(sPath, {
 					
-					success: function(oData) {
-						var aData = [oData];
-						var oLocalModel = new JSONModel({
-							results: aData
-						});
-						oTable.setModel(oLocalModel, "localModel");
+			// 		success: function(oData) {
+			// 			var aData = [oData];
+			// 			var oLocalModel = new JSONModel({
+			// 				results: aData
+			// 			});
+			// 			oTable.setModel(oLocalModel, "localModel");
 
-						oTable.bindItems({
-							path: "localModel>/results",
-							template: new sap.m.ColumnListItem({
-								cells: [
-								new sap.m.CheckBox({
-									selected: "{localModel>Selected}",
-									select: this.onItemSelect.bind(this)
-								}),
-								new sap.m.ObjectIdentifier({
-									title: "{localModel>Vbeln}"
-								}),
-								new sap.m.Text({
-									text: "{localModel>Erdat}"
-								}),
-								new sap.m.Text({
-									text: "{localModel>Vprgr}"
-								}),
-								new sap.m.Text({
-									text: "{localModel>Ernam}"
-								}),
-								new sap.m.Text({
-									text: "{localModel>Auart}"
-								}),
-								new sap.m.Text({
-									text: "{localModel>Netwr}"
-								}),
-								new sap.m.Text({
-									text: "{localModel>Waerk}"
-								}),
-								new sap.m.Text({
-									text: "{localModel>Vkorg}"
-								}),
-								new sap.m.Text({
-									text: "{localModel>Gwldt}"
-								}),
-								new sap.m.Text({
-									text: "{localModel>Kunnr}"
-								})
-							],
-								type: "Navigation",
-								press: this.onPress.bind(this)
-							})
-						});
-					}.bind(this),
-					error: function(oError) {
-						console.error("Error occurred: ", oError);
-					}
-				});
+			// 			oTable.bindItems({
+			// 				path: "localModel>/results",
+			// 				template: new sap.m.ColumnListItem({
+			// 					cells: [
+			// 					new sap.m.CheckBox({
+			// 						selected: "{localModel>Selected}",
+			// 						select: this.onItemSelect.bind(this)
+			// 					}),
+			// 					new sap.m.ObjectIdentifier({
+			// 						title: "{localModel>Vbeln}"
+			// 					}),
+			// 					new sap.m.Text({
+			// 						text: "{localModel>Erdat}"
+			// 					}),
+			// 					new sap.m.Text({
+			// 						text: "{localModel>Vprgr}"
+			// 					}),
+			// 					new sap.m.Text({
+			// 						text: "{localModel>Ernam}"
+			// 					}),
+			// 					new sap.m.Text({
+			// 						text: "{localModel>Auart}"
+			// 					}),
+			// 					new sap.m.Text({
+			// 						text: "{localModel>Netwr}"
+			// 					}),
+			// 					new sap.m.Text({
+			// 						text: "{localModel>Waerk}"
+			// 					}),
+			// 					new sap.m.Text({
+			// 						text: "{localModel>Vkorg}"
+			// 					}),
+			// 					new sap.m.Text({
+			// 						text: "{localModel>Gwldt}"
+			// 					}),
+			// 					new sap.m.Text({
+			// 						text: "{localModel>Kunnr}"
+			// 					})
+			// 				],
+			// 					type: "Navigation",
+			// 					press: this.onPress.bind(this)
+			// 				})
+			// 			});
+			// 		}.bind(this),
+			// 		error: function(oError) {
+			// 			console.error("Error occurred: ", oError);
+			// 		}
+			// 	});
 
-			} else {
-				oTable.unbindItems();
-			}
+			// } else {
+			// 	oTable.unbindItems();
+			// }
 
 		},
 		onPress: function(oEvent) {

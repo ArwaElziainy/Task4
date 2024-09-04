@@ -90,12 +90,15 @@ sap.ui.define([
 			console.log(oData);
 
 			// Save the sales order using the OData model
+			var that = this;
 			this.oODataModel.create("/SOHeadSet", oData, {
 				success: function(oData2) {
 					console.log(oData2);
+					// console.log(oData2);
 					sap.m.MessageToast.show("Sales Document  " + oData2.Vbeln + " created");
 					SharedData.setData("Vbeln", oData2.Vbeln);
-					var oApp = this.getView().getParent(); // Get the parent (the app control or the container)
+					console.log(that.getView())
+					var oApp = that.getView().getParent(); // Get the parent (the app control or the container)
 					XMLView.create({
 						viewName: "Task4.view.display"
 					}).then(function(oDisplayView) {

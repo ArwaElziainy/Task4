@@ -1,37 +1,23 @@
-/*html[data-sap-ui-animation='on'] .sapMNavItem,*/
-
-
-/*html[data-sap-ui-animation='on'] .sapMNavItem.sapMPage {*/
-
-
-/*    background-color: #fff;*/
-
-
-/*}*/
-
-
 /*View1*/
 
 
 /*Header*/
+
+.sapFDynamicPageTitle {
+    background-color: #fff !important;
+}
+
+.sapFDynamicPageHeader {
+    background-color: #fff !important;
+}
 
 html.sap-desktop .sapMBtn:focus>.sapMFocusable {
     outline: none;
     outline-offset: none;
 }
 
-#__button0-inner {
-    border: none;
-    background-color: transparent;
-}
-
 .sapMSFF {
     border-radius: 10px;
-    height: 1.7rem;
-    margin-top: 6px;
-}
-
-.sapMSFI {
     height: 1.7rem;
 }
 
@@ -43,6 +29,63 @@ html.sap-desktop .sapMBtn:focus>.sapMFocusable {
     line-height: 1.5rem;
 }
 
+span.sapMBtnInner.sapMBtnEmphasized {
+    background-color: transparent;
+}
+
+.go #__xmlview1--filterbar-btnGo span bdi {
+    background-color: #0070f2;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.go #__xmlview1--filterbar-btnGo span bdi:hover {
+    background-color: #0064d9;
+}
+
+.sapMBtn:hover>.sapMBtnHoverable.sapMBtnEmphasized:not(.sapMBtnActive):not(.sapMToggleBtnPressed) {
+    background-color: transparent;
+    border-color: transparent;
+}
+html.sap-desktop .go .sapMBtn:focus>.sapMBtnActive.sapMFocusable {
+    background-color: transparent ;
+}
+
+.sapFDynamicPageToggleHeaderIndicator .sapMBtnInner,
+.sapFDynamicPageHeaderPinButton .sapMBtnInner {
+    min-width: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem !important;
+    bottom: 0.25rem;
+    border-radius: .5rem !important;
+    box-shadow: 0 0 .125rem 0 rgba(34, 53, 72, 0.2), 0 .125rem .25rem 0 rgba(34, 53, 72, 0.2);
+    background-color: #fff !important;
+    border: .0625rem solid #bcc3ca !important;
+}
+
+html[data-sap-ui-browser^="cr"] .sapFDynamicPageToggleHeaderIndicator .sapMBtnInner .sapMBtnIcon,
+html[data-sap-ui-browser^="cr"] .sapFDynamicPageHeaderPinButton .sapMBtnInner .sapMBtnIcon {
+    line-height: 1.375rem;
+    font-size: 1.000rem;
+    
+    color:#0064d9;
+}
+.sapUiIcon::before{
+	font-weight:bold !important;
+}
+
+.sapFDynamicPageHeaderPinnable .sapFDynamicPageToggleHeaderIndicator{
+    margin-left: -1.75rem !important;
+}
+.sapFDynamicPageToggleHeaderIndicator, .sapFDynamicPageHeaderPinButton {
+
+    bottom: -0.95rem !important;
+}
+
+/*Table*/
+
 .sapMIBar {
     margin: 0 auto 0 auto !important;
     background-color: #ffffff !important;
@@ -50,8 +93,8 @@ html.sap-desktop .sapMBtn:focus>.sapMFocusable {
 
 .margin-top.sapMIBar {
     margin-top: 10px !important;
-    border-top-right-radius: 10px ;
-    border-top-left-radius: 10px ;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 .sapMIBar .sapMBtnInner {
@@ -76,45 +119,13 @@ html.sap-desktop .sapMBtn:focus>.sapMFocusable {
 .sapMIBar .create .sapMBtnInner bdi:hover {
     background-color: #ebebeb;
 }
-
-
-/*.sapMBtn:hover>.sapMBtnHoverable {*/
-
-
-/*    background-color: transparent !important;*/
-
-
-/*    border-color: transparent;*/
-
-
-/*    cursor: default;*/
-
-
-/*}*/
+.sapMTB-Transparent-CTX .sapMBtn:hover>.sapMBtnDefault.sapMBtnHoverable {
+    background: transparent !important;
+}
 
 .sapMTBNewFlex span bdi {
     cursor: pointer;
 }
-
-Button.go span bdi {
-    background-color: #0070f2;
-    color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-Button.go span bdi:hover {
-    background-color: #0064d9;
-}
-
-.sapMScrollContScroll {
-    padding: 15px 30px;
-    background-color: #ffffff !important;
-}
-
-
-/*Table*/
 
 .sapMColumnHeader .sapMText {
     font-weight: bold;
@@ -199,18 +210,15 @@ Button.go span bdi:hover {
 }
 
 
-/*edit view*/
-
-.displayNone {
-    display: none;
-}
 
 
 /*View3*/
+
 .border-bottom.sapMIBar {
-    border-bottom-right-radius: 10px ;
-    border-bottom-left-radius: 10px ;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
+
 .footer.sapMIBar {
     position: fixed;
     bottom: 10px;
@@ -248,9 +256,11 @@ Button.go span bdi:hover {
     margin-bottom: 50px;
 }
 
+/*************************************************editView******************************************************/
+
 
 /*input view*/
 
-.sapUxAPObjectPageHeaderDetails {
-    background-color: #fff;
-}
+/*.sapUxAPObjectPageHeaderDetails {*/
+/*    background-color: #fff;*/
+/*}*/

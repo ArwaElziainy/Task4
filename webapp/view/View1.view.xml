@@ -1,80 +1,106 @@
 <mvc:View controllerName="Task4.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns="sap.m">
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns="sap.m"
+	xmlns:uxap="sap.uxap" xmlns:f="sap.f" xmlns:svm="sap.ui.comp.smartvariants" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
 	<App>
-		<pages>
-			<Page>
-				<content>
-					<Toolbar height="auto">
-						<FlexBox width="100%" alignContent="Center" justifyContent="SpaceAround" alignItems="Center" wrap="Wrap">
-							<SearchField id="inputVbeln" placeholder="Sales Document" tooltip="{i18n>worklistSearchTooltip}" liveChange=".onFilter" width="250px"/>
-							<Button class="go" text="Go" width="250px" press=".onGo"/>
-						</FlexBox>
-					</Toolbar>
-					<Toolbar width="90%" class="margin-top">
-						<Button class="editIcon create " text="Create" tooltip="Create" press=".onCreate"/>
-						<Button class="editIcon" id="delete" text="Delete" tooltip="Delete" enabled="false" press="onDelete"/>
-					</Toolbar>
-					<Table class="table" width="90%" id="table" items="{ path: '/SOHeadSet', parameters: { expand: 'HeadToItems'}}"
-						noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid">
-						<columns>
-							<Column hAlign="Center">
-								<CheckBox id="selectAllCheckbox" select="onSelectAll" text=""/>
-							</Column>
-							<Column id="VBELNCol" hAlign="Center">
-								<Text text="Sales Document" id="VBELN"/>
-							</Column>
-							<Column id="ERDATCol" hAlign="Center">
-								<Text text="Created on" id="ERDAT"/>
-							</Column>
-							<Column id="VPRGRCol" hAlign="Center">
-								<Text text="Proposed date type" id="VPRGR"/>
-							</Column>
-							<Column id="ERNAMCol" hAlign="Center">
-								<Text text="Created by" id="ERNAM"/>
-							</Column>
-							<Column id="AUARTCol" hAlign="Center">
-								<Text text="Sales Doc. Type" id="AUART"/>
-							</Column>
-							<Column id="NETWRCol" hAlign="Center">
-								<Text text="Net value" id="NETWR"/>
-							</Column>
-							<Column id="WAERKCol" hAlign="Center">
-								<Text text="Doc. Currency" id="WAERK"/>
-							</Column>
-							<Column id="VKORGCol" hAlign="Center">
-								<Text text="Sales Org." id="VKORG"/>
-							</Column>
-							<Column id="GWLDTCol" hAlign="Center">
-								<Text text="Warranty Date" id="GWLDT"/>
-							</Column>
-							<Column id="KUNNRCol" hAlign="Center">
-								<Text text="Customer" id="KUNNR"/>
-							</Column>
-						</columns>
-						<items>
-							<ColumnListItem type="Navigation" press=".onPress" vAlign="Middle">
-								<cells>
-									<CheckBox selected="{Selected}" select="onItemSelect"/>
-									<ObjectIdentifier id="VBELNText" title="{Vbeln}"/>
-									<Text id="ERDATText" text="{Erdat}"/>
-									<Text id="VPRGRText" text="{Vprgr}"/>
-									<Text id="ERNAMText" text="{Ernam}"/>
-									<Text id="AUARTText" text="{Auart}"/>
-									<Text id="NETWRText" text="{Netwr}"/>
-									<Text id="WAERKText" text="{Waerk}"/>
-									<Text id="VKORGText" text="{Vkorg}"/>
-									<Text id="GWLDTText" text="{Gwldt}"/>
-									<Text id="KUNNRText" text="{Kunnr}"/>
-								</cells>
-							</ColumnListItem>
-						</items>
-						<customData>
-							<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>
-						</customData>
-					</Table>
-				
-				</content>
-			</Page>
-		</pages>
+		<f:DynamicPage headerExpanded="{/headerExpanded}">
+			<f:title>
+				<f:DynamicPageTitle>
+					<f:heading>
+						<svm:SmartVariantManagement id="svm" showExecuteOnSelection="true"/>
+					</f:heading>
+					<f:expandedContent>
+						<Label id="expandedLabel" text="No filters active"/>
+					</f:expandedContent>
+					<f:snappedContent>
+						<Label id="snappedLabel" text="No filters active"/>
+					</f:snappedContent>
+				</f:DynamicPageTitle>
+			</f:title>
+			<f:header>
+				<f:DynamicPageHeader>
+					<f:content>
+						<fb:FilterBar id="filterbar" class="go" persistencyKey="myPersKey" useToolbar="false" search=".onGo" filterChange=".onFilterChange"
+							afterVariantLoad=".onAfterVariantLoad">
+							<fb:filterGroupItems>
+								<fb:FilterGroupItem name="Name" label="Sales Document" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<SearchField id="idScannerInput" tooltip="{i18n>worklistSearchTooltip}" liveChange="onFilterItems" width="250px"/>
+									</fb:control>
+								</fb:FilterGroupItem>
+							</fb:filterGroupItems>
+						</fb:FilterBar>
+					</f:content>
+				</f:DynamicPageHeader>
+			</f:header>
+			<f:content>
+				<Table class="table" width="100%" id="table" items="{ path: '/SOHeadSet', parameters: { expand: 'HeadToItems'}}"
+					noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid">
+					<headerToolbar>
+						<OverflowToolbar class="margin-top">
+							<content>
+								<Button class="editIcon create " text="Create" tooltip="Create" press=".onCreate"/>
+								<Button class="editIcon" id="delete" text="Delete" tooltip="Delete" enabled="false" press="onDelete"/>
+							</content>
+						</OverflowToolbar>
+					</headerToolbar>
+					<columns>
+						<Column hAlign="Center">
+							<CheckBox id="selectAllCheckbox" select="onSelectAll" text=""/>
+						</Column>
+						<Column id="VBELNCol" hAlign="Center">
+							<Text text="Sales Document" id="VBELN"/>
+						</Column>
+						<Column id="ERDATCol" hAlign="Center">
+							<Text text="Created on" id="ERDAT"/>
+						</Column>
+						<Column id="VPRGRCol" hAlign="Center">
+							<Text text="Proposed date type" id="VPRGR"/>
+						</Column>
+						<Column id="ERNAMCol" hAlign="Center">
+							<Text text="Created by" id="ERNAM"/>
+						</Column>
+						<Column id="AUARTCol" hAlign="Center">
+							<Text text="Sales Doc. Type" id="AUART"/>
+						</Column>
+						<Column id="NETWRCol" hAlign="Center">
+							<Text text="Net value" id="NETWR"/>
+						</Column>
+						<Column id="WAERKCol" hAlign="Center">
+							<Text text="Doc. Currency" id="WAERK"/>
+						</Column>
+						<Column id="VKORGCol" hAlign="Center">
+							<Text text="Sales Org." id="VKORG"/>
+						</Column>
+						<Column id="GWLDTCol" hAlign="Center">
+							<Text text="Warranty Date" id="GWLDT"/>
+						</Column>
+						<Column id="KUNNRCol" hAlign="Center">
+							<Text text="Customer" id="KUNNR"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem type="Navigation" press=".onPress" vAlign="Middle">
+							<cells>
+								<CheckBox selected="{Selected}" select="onItemSelect"/>
+								<ObjectIdentifier id="VBELNText" title="{Vbeln}"/>
+								<Text id="ERDATText" text="{Erdat}"/>
+								<Text id="VPRGRText" text="{Vprgr}"/>
+								<Text id="ERNAMText" text="{Ernam}"/>
+								<Text id="AUARTText" text="{Auart}"/>
+								<Text id="NETWRText" text="{Netwr}"/>
+								<Text id="WAERKText" text="{Waerk}"/>
+								<Text id="VKORGText" text="{Vkorg}"/>
+								<Text id="GWLDTText" text="{Gwldt}"/>
+								<Text id="KUNNRText" text="{Kunnr}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+					<customData>
+						<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>
+					</customData>
+				</Table>
+			</f:content>
+		</f:DynamicPage>
+	
 	</App>
 </mvc:View>
