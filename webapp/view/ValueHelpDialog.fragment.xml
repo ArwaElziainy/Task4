@@ -1,0 +1,67 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog title="Sales Document Value Help" class="sapUiResponsivePadding"
+        afterClose="onValueHelpDialogClose" stretchOnPhone="true">
+        <VBox>
+            <!-- Filter Input Fields -->
+            <Label text="Search by Sales Document Criteria" />
+            <HBox justifyContent="SpaceBetween">
+                <VBox>
+                    <Label text="Created On" />
+                    <DatePicker id="createdOnInput" />
+                </VBox>
+                <VBox>
+                    <Label text="Created By" />
+                    <Input id="createdByInput" placeholder="Created By" />
+                </VBox>
+                <VBox>
+                    <Label text="Sales Doc. Type" />
+                    <Input id="salesDocTypeInput" placeholder="Sales Doc. Type" />
+                </VBox>
+                <VBox>
+                    <Label text="Customer" />
+                    <Input id="customerInput" placeholder="Customer" />
+                </VBox>
+            </HBox>
+
+            <!-- Apply Filters Button -->
+            <Button text="Search Sales Document" press="onApplyFilters" />
+
+            <!-- Sales Document Table -->
+            <Table id="salesDocTable" items="{odataModel>/SOHeadSet}" mode="SingleSelectMaster"
+                selectionChange="onValueHelpSelect">
+                <columns>
+                    <Column>
+                        <Text text="Sales Document" />
+                    </Column>
+                    <Column>
+                        <Text text="Created On" />
+                    </Column>
+                    <Column>
+                        <Text text="Created By" />
+                    </Column>
+                    <Column>
+                        <Text text="Sales Doc. Type" />
+                    </Column>
+                    <Column>
+                        <Text text="Customer" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{odataModel>Vbeln}" />
+                            <Text text="{odataModel>Erdat}" />
+                            <Text text="{odataModel>Ernam}" />
+                            <Text text="{odataModel>Auart}" />
+                            <Text text="{odataModel>Kunnr}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+
+        <endButton>
+            <Button text="Close" press="onValueHelpDialogClose" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

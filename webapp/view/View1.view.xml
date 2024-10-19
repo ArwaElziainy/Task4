@@ -1,6 +1,6 @@
 <mvc:View controllerName="Task4.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
 	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns="sap.m"
-	xmlns:uxap="sap.uxap" xmlns:f="sap.f" xmlns:svm="sap.ui.comp.smartvariants" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
+	xmlns:uxap="sap.uxap" xmlns:f="sap.f" xmlns:svm="sap.ui.comp.smartvariants" xmlns:table="sap.ui.table" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
 	<App>
 		<f:DynamicPage headerExpanded="{/headerExpanded}">
 			<f:title>
@@ -24,7 +24,10 @@
 							<fb:filterGroupItems>
 								<fb:FilterGroupItem name="Name" label="Sales Document" groupName="Group1" visibleInFilterBar="true">
 									<fb:control>
-										<SearchField id="idScannerInput" tooltip="{i18n>worklistSearchTooltip}" liveChange="onFilterItems" width="250px"/>
+										<!--<SearchField id="idScannerInput"  tooltip="{i18n>worklistSearchTooltip}" placeholder=" " liveChange="onFilterItems"-->
+										<!--	width="250px"/>-->
+										<Input id="salesDocInput" tooltip="{i18n>worklistSearchTooltip}" placeholder=" "  showClearIcon="true"
+											showValueHelp="true" valueHelpRequest="onSalesDocumentValueHelp"/>
 									</fb:control>
 								</fb:FilterGroupItem>
 							</fb:filterGroupItems>
@@ -33,74 +36,238 @@
 				</f:DynamicPageHeader>
 			</f:header>
 			<f:content>
-				<Table class="table" width="100%" id="table" items="{ path: '/SOHeadSet', parameters: { expand: 'HeadToItems'}}"
-					noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid">
-					<headerToolbar>
-						<OverflowToolbar class="margin-top">
-							<content>
-								<Button class="editIcon create " text="Create" tooltip="Create" press=".onCreate"/>
-								<Button class="editIcon" id="delete" text="Delete" tooltip="Delete" enabled="false" press="onDelete"/>
-							</content>
-						</OverflowToolbar>
-					</headerToolbar>
-					<columns>
-						<Column hAlign="Center">
-							<CheckBox id="selectAllCheckbox" select="onSelectAll" text=""/>
-						</Column>
-						<Column id="VBELNCol" hAlign="Center">
-							<Text text="Sales Document" id="VBELN"/>
-						</Column>
-						<Column id="ERDATCol" hAlign="Center">
-							<Text text="Created on" id="ERDAT"/>
-						</Column>
-						<Column id="VPRGRCol" hAlign="Center">
-							<Text text="Proposed date type" id="VPRGR"/>
-						</Column>
-						<Column id="ERNAMCol" hAlign="Center">
-							<Text text="Created by" id="ERNAM"/>
-						</Column>
-						<Column id="AUARTCol" hAlign="Center">
-							<Text text="Sales Doc. Type" id="AUART"/>
-						</Column>
-						<Column id="NETWRCol" hAlign="Center">
-							<Text text="Net value" id="NETWR"/>
-						</Column>
-						<Column id="WAERKCol" hAlign="Center">
-							<Text text="Doc. Currency" id="WAERK"/>
-						</Column>
-						<Column id="VKORGCol" hAlign="Center">
-							<Text text="Sales Org." id="VKORG"/>
-						</Column>
-						<Column id="GWLDTCol" hAlign="Center">
-							<Text text="Warranty Date" id="GWLDT"/>
-						</Column>
-						<Column id="KUNNRCol" hAlign="Center">
-							<Text text="Customer" id="KUNNR"/>
-						</Column>
-					</columns>
-					<items>
-						<ColumnListItem type="Navigation" press=".onPress" vAlign="Middle">
-							<cells>
-								<CheckBox selected="{Selected}" select="onItemSelect"/>
-								<ObjectIdentifier id="VBELNText" title="{Vbeln}"/>
-								<Text id="ERDATText" text="{Erdat}"/>
-								<Text id="VPRGRText" text="{Vprgr}"/>
-								<Text id="ERNAMText" text="{Ernam}"/>
-								<Text id="AUARTText" text="{Auart}"/>
-								<Text id="NETWRText" text="{Netwr}"/>
-								<Text id="WAERKText" text="{Waerk}"/>
-								<Text id="VKORGText" text="{Vkorg}"/>
-								<Text id="GWLDTText" text="{Gwldt}"/>
-								<Text id="KUNNRText" text="{Kunnr}"/>
-							</cells>
-						</ColumnListItem>
-					</items>
-					<customData>
-						<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>
-					</customData>
-				</Table>
+				<VBox>
+				<!--	<Dialog-->
+    <!--    id="valueHelpDialog"-->
+    <!--    title="Select Contract"-->
+    <!--    beginButton="{-->
+    <!--        text: 'OK',-->
+    <!--        press: '.onValueHelpOk'-->
+    <!--    }"-->
+    <!--    endButton="{-->
+    <!--        text: 'Cancel',-->
+    <!--        press: '.onValueHelpCancel'-->
+    <!--    }"-->
+    <!--    afterClose=".onValueHelpClose">-->
+        
+    <!--    <VBox>-->
+            <!-- Search Fields -->
+    <!--        <HBox>-->
+    <!--            <Label text="Vendor Number"/>-->
+    <!--            <Input id="vendorNumber" />-->
+    <!--        </HBox>-->
+    <!--        <HBox>-->
+    <!--            <Label text="Company Code"/>-->
+    <!--            <Input id="companyCode" />-->
+    <!--        </HBox>-->
+    <!--        <HBox>-->
+    <!--            <Label text="Start Date"/>-->
+    <!--            <DatePicker id="startDate" displayFormat="yyyy-MM-dd" />-->
+    <!--        </HBox>-->
+    <!--        <HBox>-->
+    <!--            <Label text="End Date"/>-->
+    <!--            <DatePicker id="endDate" displayFormat="yyyy-MM-dd" />-->
+    <!--        </HBox>-->
+
+            <!-- Table to display contract data -->
+    <!--        <table:Table-->
+    <!--            id="contractsTable"-->
+    <!--            rows="{/NOTIFIHEADSet}"-->
+    <!--            visibleRowCount="10"-->
+    <!--            selectionMode="Single"-->
+    <!--            ariaLabelledBy="tableTitle">-->
+    <!--            <table:columns>-->
+    <!--                <table:Column>-->
+    <!--                    <Label text="Contract Number" />-->
+    <!--                    <table:template>-->
+    <!--                        <Text text="{ContractNumber}" />-->
+    <!--                    </table:template>-->
+    <!--                </table:Column>-->
+    <!--                <table:Column>-->
+    <!--                    <Label text="Vendor Number" />-->
+    <!--                    <table:template>-->
+    <!--                        <Text text="{VendorNumber}" />-->
+    <!--                    </table:template>-->
+    <!--                </table:Column>-->
+    <!--                <table:Column>-->
+    <!--                    <Label text="Company Code" />-->
+    <!--                    <table:template>-->
+    <!--                        <Text text="{CompanyCode}" />-->
+    <!--                    </table:template>-->
+    <!--                </table:Column>-->
+    <!--                <table:Column>-->
+    <!--                    <Label text="Start Date" />-->
+    <!--                    <table:template>-->
+    <!--                        <Text text="{StartDate}" />-->
+    <!--                    </table:template>-->
+    <!--                </table:Column>-->
+    <!--                <table:Column>-->
+    <!--                    <Label text="End Date" />-->
+    <!--                    <table:template>-->
+    <!--                        <Text text="{EndDate}" />-->
+    <!--                    </table:template>-->
+    <!--                </table:Column>-->
+    <!--            </table:columns>-->
+    <!--        </table:Table>-->
+    <!--    </VBox>-->
+    <!--</Dialog>-->
+					<!--<Dialog id="valueHelpDialog" title="Select Value" class="sapUiResponsivePadding">-->
+					<!--	<VBox>-->
+					<!--		<Label text="Select Column"/>-->
+					<!--		<Select id="filterColumnSelectValue">-->
+					<!--			<core:Item key="Vbeln" text="sales 1"/>-->
+					<!--			<core:Item key="Erdat" text="date 2"/>-->
+								<!-- Add more columns as needed -->
+					<!--		</Select>-->
+					<!--		<Label text="Enter Value"/>-->
+					<!--		<Input id="filterValueHelpInput" placeholder="Enter value..."/>-->
+					<!--		<Table id="valueHelpTable" mode="SingleSelectLeft" items="{/ValueHelpSet}">-->
+					<!--			<columns>-->
+					<!--				<Column>-->
+					<!--					<Text text="ID"/>-->
+					<!--				</Column>-->
+					<!--				<Column>-->
+					<!--					<Text text="Name"/>-->
+					<!--				</Column>-->
+					<!--			</columns>-->
+					<!--			<items>-->
+					<!--				<ColumnListItem>-->
+					<!--					<cells>-->
+					<!--						<Text text="{ID}"/>-->
+					<!--						<Text text="{Name}"/>-->
+					<!--					</cells>-->
+					<!--				</ColumnListItem>-->
+					<!--			</items>-->
+					<!--		</Table>-->
+					<!--	</VBox>-->
+					<!--	<beginButton>-->
+					<!--		<Button text="OK" press="onValueHelpOkPress"/>-->
+					<!--	</beginButton>-->
+					<!--	<endButton>-->
+					<!--		<Button text="Cancel" press="onValueHelpCancelPress"/>-->
+					<!--	</endButton>-->
+					<!--</Dialog>-->
+					<Table class="table" width="100%" id="table" items="{ path: '/SOHeadSet', parameters: { expand: 'HeadToItems'}}"
+						noDataText="{worklistView>/tableNoDataText}" backgroundDesign="Solid">
+						<headerToolbar>
+							<OverflowToolbar class="margin-top">
+								<content>
+									<Button class="sort" icon="sap-icon://sort" press="onOpenSortDialog"/>
+									<Button icon="sap-icon://excel-attachment" press="onExport" tooltip="Export to Excel"/>
+									<Button icon="sap-icon://filter" press="onOpenFilterDialog"/>
+									<Button class="editIcon create " text="Create" tooltip="Create" press=".onCreate"/>
+									<Button class="editIcon" id="delete" text="Delete" tooltip="Delete" enabled="false" press="onDelete"/>
+								</content>
+							</OverflowToolbar>
+						</headerToolbar>
+						<columns>
+							<Column hAlign="Center">
+								<CheckBox id="selectAllCheckbox" select="onSelectAll" text=""/>
+							</Column>
+							<Column id="VBELNCol" hAlign="Center">
+								<Text text="Sales Document" id="VBELN"/>
+							</Column>
+							<Column id="ERDATCol" hAlign="Center">
+								<Text text="Created on" id="ERDAT"/>
+							</Column>
+							<Column id="VPRGRCol" hAlign="Center">
+								<Text text="Proposed date type" id="VPRGR"/>
+							</Column>
+							<Column id="ERNAMCol" hAlign="Center">
+								<Text text="Created by" id="ERNAM"/>
+							</Column>
+							<Column id="AUARTCol" hAlign="Center">
+								<Text text="Sales Doc. Type" id="AUART"/>
+							</Column>
+							<Column id="NETWRCol" hAlign="Center">
+								<Text text="Net value" id="NETWR"/>
+							</Column>
+							<Column id="WAERKCol" hAlign="Center">
+								<Text text="Doc. Currency" id="WAERK"/>
+							</Column>
+							<Column id="VKORGCol" hAlign="Center">
+								<Text text="Sales Org." id="VKORG"/>
+							</Column>
+							<Column id="GWLDTCol" hAlign="Center">
+								<Text text="Warranty Date" id="GWLDT"/>
+							</Column>
+							<Column id="KUNNRCol" hAlign="Center">
+								<Text text="Customer" id="KUNNR"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Navigation" press=".onPress" vAlign="Middle">
+								<cells>
+									<CheckBox selected="{Selected}" select="onItemSelect"/>
+									<ObjectIdentifier id="VBELNText" title="{Vbeln}"/>
+									<Text id="ERDATText" text="{Erdat}"/>
+									<Text id="VPRGRText" text="{Vprgr}"/>
+									<Text id="ERNAMText" text="{Ernam}"/>
+									<Text id="AUARTText" text="{Auart}"/>
+									<Text id="NETWRText" text="{Netwr}"/>
+									<Text id="WAERKText" text="{Waerk}"/>
+									<Text id="VKORGText" text="{Vkorg}"/>
+									<Text id="GWLDTText" text="{Gwldt}"/>
+									<Text id="KUNNRText" text="{Kunnr}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+						<customData>
+							<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>
+						</customData>
+					</Table>
+					<Dialog id="sortDialog" title="Sort Options">
+						<VBox id="sortOptionsContainer">
+							<HBox>
+								<Select id="columnSelect" width="auto">
+									<items>
+										<core:Item key="Vbeln" text="Sales Document"/>
+										<core:Item key="Erdat" text="Created on"/>
+										<core:Item key="Vprgr" text="Proposed date type"/>
+										<core:Item key="Ernam" text="Created by"/>
+										<core:Item key="Auart" text="Sales Doc. Type"/>
+										<core:Item key="Netwr" text="Net value"/>
+										<core:Item key="Waerk" text="Doc. Currency"/>
+										<core:Item key="Vkorg" text="Sales Org."/>
+										<core:Item key="Gwldt" text="Warranty Date"/>
+										<core:Item key="Kunnr" text="Customer"/>
+									</items>
+								</Select>
+								<RadioButtonGroup id="sortOrderGroup" columns="10">
+									<buttons>
+										<RadioButton text="Ascending" selected="true"/>
+										<RadioButton text="Descending"/>
+									</buttons>
+								</RadioButtonGroup>
+							</HBox>
+						</VBox>
+						<endButton>
+							<Button text="Sort" press="onSort"/>
+						</endButton>
+						<beginButton>
+							<Button text="Cancel" press="onCloseSortDialog"/>
+						</beginButton>
+					</Dialog>
+					<Dialog id="filterDialog" title="Filter" class="sapUiResponsivePadding filterDialog">
+						<VBox>
+							<Label text="Select Column"/>
+							<Select id="filterColumnSelect">
+								<core:Item key="Vbeln" text="sales"/>
+								<core:Item key="Erdat" text="date"/>
+								<!-- Add more columns as needed -->
+							</Select>
+							<Label text="Enter Value"/>
+							<Input id="filterValueInput" placeholder="Enter value..." width="auto"/>
+						</VBox>
+						<beginButton>
+							<Button text="Apply" press="onFilterDialogConfirm"/>
+						</beginButton>
+						<endButton>
+							<Button text="Cancel" press="onCloseFilterDialog"/>
+						</endButton>
+					</Dialog>
+				</VBox>
 			</f:content>
 		</f:DynamicPage>
-	
 	</App>
 </mvc:View>

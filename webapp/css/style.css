@@ -85,7 +85,17 @@ html[data-sap-ui-browser^="cr"] .sapFDynamicPageHeaderPinButton .sapMBtnInner .s
 }
 
 /*Table*/
-
+.sapMBtnIcon{
+	color: #0064d9;
+	font-size: 1.1rem;
+}
+.sapContrast .sapMBtnInner {
+	color: #0064d9; 
+    text-shadow: none;
+}
+.sapContrast .sapMBtn:hover:not(.sapMBtnDisabled):not(.sapMSBActive)>.sapMBtnHoverable:not(.sapMBtnDisabled):not(.sapMBtnActive):not(.sapMToggleBtnPressed):not(.sapMBtnTransparent).sapMBtnDefault{
+	color:#ffffff;
+}
 .sapMIBar {
     margin: 0 auto 0 auto !important;
     background-color: #ffffff !important;
@@ -147,7 +157,20 @@ html[data-sap-ui-browser^="cr"] .sapFDynamicPageHeaderPinButton .sapMBtnInner .s
     margin: 0 auto;
 }
 
+.sapMDialog {
+	width:600px !important;
+}
+.sapMSlt{
+	border-radius:10px;
+	margin:1px 2px 2px 10px !important;
+}
 
+.filterDialog .sapMFlexBoxAlignContentStretch {
+	margin:0 0 0 10px !important;
+}
+.filterDialog .sapMLabel:not(.sapMLabelWrapped) .sapMLabelTextWrapper {
+	margin:10px 0 0 0 !important;
+}
 /***********************************************************View2*************************************/
 
 

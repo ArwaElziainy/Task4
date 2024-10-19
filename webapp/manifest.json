@@ -52,7 +52,8 @@
 				"sap.ushell": {},
 				"sap.collaboration": {},
 				"sap.ui.comp": {},
-				"sap.uxap": {}
+				"sap.uxap": {},
+				"sap.ui.export": {}
 			}
 		},
 		"contentDensities": {
@@ -104,7 +105,7 @@
 					"controlAggregation": "pages",
 					"viewLevel": 3
 				},
-			
+
 				"View2": {
 					"viewName": "View2",
 					"viewType": "XML",
